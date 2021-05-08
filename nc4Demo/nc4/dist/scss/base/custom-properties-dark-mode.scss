@@ -1,0 +1,22 @@
+
+// CSS Custom Properties / CSS Variables
+//
+// Dark Mode Variables
+//
+//=== 1. Imports
+
+// Core variables and mixins
+//# Default Variables
+@import '../settings/config'; 
+
+//# Project/Your Settings, overwrite the default css variables
+@import '../settings/custom-settings';
+
+//=== Aditional SCSS Variables
+@import '../settings/variables';
+//== Your custom scss overwrite variables
+@import '../settings/custom-variables';
+
+//=== CSS Custom Properties / CSS Variables
+@import '../settings/custom-properties/core-css-variables';
+@import '../settings/custom-properties/variables-dark-mode';

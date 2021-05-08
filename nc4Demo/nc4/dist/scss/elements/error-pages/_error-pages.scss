@@ -1,0 +1,39 @@
+
+/*
+ * Error pages
+ */
+
+.error-page {
+    margin: 0 auto;
+    padding: 7% 10%;
+    border-radius: 15px;
+
+    background-color: var(--module-container-bg-color);
+    box-shadow: var(--module-container-shadow);
+
+    h1 {
+        font-size: 3.2rem;
+        font-family: $font-family-secondary;
+        margin-bottom: 3.2rem;
+        line-height: 1;
+    }
+
+    p {
+        line-height: 1.8; 
+        margin-bottom: 3.2rem;
+    }
+
+    .error-page-image {
+        text-align: center;
+        opacity: var(--error-img-opacity);
+
+        img { max-width: 100%; }
+    }
+
+    .error-page-content {
+        @media (max-width: $screen-md-min) { 
+            text-align: center; 
+            margin-bottom: 3.6rem;
+        }
+    }
+}

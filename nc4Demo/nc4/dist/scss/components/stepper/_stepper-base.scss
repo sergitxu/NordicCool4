@@ -1,0 +1,156 @@
+// Stepper - base styling
+
+.stepper {
+    padding: 0 30px;
+
+    ul {
+        display: flex;
+        flex-wrap: nowrap;
+        position: relative;
+
+        > li {
+            position: relative;
+            cursor: pointer;
+            flex: 1;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+            height: 100%;
+            flex: 1 100%;
+            text-align: center;
+            cursor: default;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            // > div {
+            //     white-space: normal;
+            //     text-align: left;
+            // }
+
+            > * {
+                font: $font-md;
+                text-decoration: none;
+                outline: 0;
+                color: var(--stepper-text-color);
+                position: relative;
+                display: block;
+                width: 100%;
+                cursor: pointer;
+
+                &:before,
+                &:after {
+                    content: '';
+                    display: block;
+                    margin: 0 auto;
+                    position: absolute;
+                    top: auto;
+                    background: var(--stepper-bg);
+                }
+
+                &:after {
+                    width: 100%;
+                    height: 3px;
+                    right: auto;
+                    left: auto;
+                    bottom: 17px;
+                    width: 100%;
+                    background-color: var(--stepper-bg);
+                }
+
+                &:before {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 30px;
+                    z-index: 20;
+                }
+
+                span {
+                    max-width: 200px;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    width: 90%;
+                }
+
+                span:not(.step) {
+                    display: block;
+                    margin: 0;
+                    line-height: 1.5;
+                }
+
+                span.step {
+                    display: none;
+                    font-size: $font-size-xs;
+                    color: var(--stepper-text-color);
+                }
+
+            }
+
+            &:first-child {
+                width: 30px;
+                position: absolute;
+                
+                > * {
+                    width: 30px;
+
+                    &:after { display: none; }
+
+                    span:not(.step) { min-width: 150px; }
+                }
+            }
+
+            &.active {
+                > * {
+                    color: var(--stepper-active-text-color);
+                    font-weight: $bold;
+
+                    &:before {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 40px;
+                        border: 15px solid var(--stepper-active-border-color);
+                        background: var(--stepper-active-bg);
+                        bottom: -2px;
+                        box-shadow: $shadow-30 var(--stepper-active-shadow-color);
+                    }
+                }
+            }
+
+            &.passed {
+                > * {
+                    color: var(--stepper-visited-text-color);
+                    font-weight: $semibold;
+
+                    &:after { background: var(--stepper-visited-bg); }
+
+                    &:before {
+                        background-color: var(--stepper-visited-bg);
+                        background-image: var(--stepper-visited-icon);
+                        background-size: 12px 10px;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                }
+
+
+                + .active {
+                    > * {
+                        &:after {
+                            background: linear-gradient(90deg, var(--stepper-visited-bg) 0%, var(--stepper-active-border-color) 50%, var(--stepper-bg) 50%, var(--stepper-bg) 100%);
+                            background-size: 200% auto;
+                            background-position-x: 0%;
+                        }
+                    }
+                }
+            }
+
+            &.disabled {
+                > * {
+                    cursor: default;
+                    pointer-events: none;
+                }
+            }
+
+        }
+    }
+} // END '.stepper'

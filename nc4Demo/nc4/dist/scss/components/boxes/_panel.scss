@@ -1,0 +1,122 @@
+
+// Panel wrapper
+.panel, .panel-group {
+    margin-bottom: 12px;
+    padding: 0;
+
+    background-color: var(--module-container-bg-color);
+    box-shadow: var(--module-container-shadow);
+
+    // panel default inner spaceing
+    .panel-heading,
+    .panel-body {
+        padding: 18px 30px;
+    }
+
+    // Panel heading and title styleing
+    .panel-heading {
+        &, .panel-title {
+            margin: 0;
+
+            color: var(--titles-font-color);
+            line-height: 24px;
+        }
+
+        .panel-title {
+            font: {
+                size: 16px;
+                weight: $bold;
+            }
+        }
+    }
+
+    // reset spacing for the depper inner pannel
+    .panel-body {
+        .panel {
+            .panel-heading,
+            .panel-body,
+            .panel-footer {
+                padding-right: 0;
+                padding-bottom: 0;
+                padding-left: 0;
+            }
+        }
+    }
+
+    // pannel footer styling
+    .panel-footer {
+        padding: 24px 30px;
+
+        border-top: 1px solid var(--module-container-divider);
+
+        @include clearfix();
+
+        > .btn, > .btn-group {
+            margin-bottom: 0;
+        }
+    }
+
+    // remove margin bottom for the last paragraph in panel body
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    // reset styling for list inside panels
+    .list-group {
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    // reset inner spacing for table in panels
+    .table {
+        box-shadow: 0 1px 1px 0 rgba($blue-90, 0.1), 0 -1px 0 0 var(--module-container-divider);
+
+        > thead > tr > th,
+        > tbody > tr > td,
+        > tbody > tr > th {
+            &:first-child {
+                padding-left: 30px;
+            }
+            &:last-child {
+                padding-right: 30px;
+            }
+        }
+    }
+}
+
+// Panel groups style
+.panel-group {
+
+    // Anchors in panel title
+    .panel-title {
+        a {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .panel-heading {
+        padding-bottom: 0;
+    }
+
+    .panel {
+        margin-bottom: 0;
+        box-shadow: none;
+
+        .panel {
+            .panel-title {
+                a {
+                    color: var(--titles-font-color);
+
+                    &:hover {
+                        color: var(--anchor-hover-color);
+                    }
+                }
+            }
+        }
+    }
+}
+

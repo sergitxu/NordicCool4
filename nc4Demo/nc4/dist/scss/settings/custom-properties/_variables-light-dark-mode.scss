@@ -1,0 +1,30 @@
+// CSS Custom Properties / CSS Variables
+//
+// Light & Dark Mode Variables
+//
+//=== A. Ligth Mode
+//=== B. Dark Mode
+//=== C. Dark Mode at the OS level
+
+
+/* Setup a few global scope properties */
+//=== Theme Variables
+
+/* A. Ligth Mode */
+:root {
+  @include light-mode();
+  }
+
+
+/* B. Dark Mode */
+html[data-theme='dark'], html.dark-theme {
+  @include dark-mode();
+  }
+
+
+/* C. Styles for users who prefer dark mode at the OS level */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme='light']):not(.light-theme) {
+    @include dark-mode();
+    }
+}

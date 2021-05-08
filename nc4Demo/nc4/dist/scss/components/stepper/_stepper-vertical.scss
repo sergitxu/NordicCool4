@@ -1,0 +1,228 @@
+
+// Stepper - vertical 
+.stepper.stepper-vertical {
+    max-width: 100%;
+    margin: 0;
+    
+    ul {
+        flex-direction: column;
+        padding-left: 0;
+
+        > li,
+        > li:first-child {
+            max-width: 100%;
+            width: auto;
+            position: relative;
+        }
+
+        > li {
+            > * {
+                width: 300px;
+                min-height: 120px;
+                padding-left: 65px;
+                padding-top: 3px;
+
+                @media (max-width: $screen-md-min) { 
+                    padding-left: 48px;
+                    padding-top: 0;
+                    min-height: 45px;
+                }
+
+                span {
+                    width: 100%;
+                    max-width: 100%;
+                }
+
+                &:after {
+                    width: 3px;
+                    height: 100%;
+                    top: -100%;
+                    left: 18px;
+                    bottom: auto;
+
+                    @media (max-width: $screen-md-min) { 
+                        width: 2px;
+                        left: 9px;
+                    }
+                }
+
+                &:before {
+                    bottom: auto;
+                    right: auto;
+                    top: 0;
+                    left: 5px;
+
+                    @media (max-width: $screen-md-min) { 
+                        width: 16px;
+                        height: 16px;
+                        left: 2px;
+                    }
+                }
+
+                span:not(.step) { 
+                    text-align: left; 
+
+                    @media (max-width: $screen-md-min) { 
+                        top: -5px;
+                        position: relative;
+                    }
+                }
+            }
+
+            &:last-child {
+                max-height: 40px;
+            }
+
+            &.active {
+                > * {
+                    padding-top: 7px;
+
+                    &:before { 
+                        left: 0; 
+
+                        @media (max-width: $screen-md-min) { 
+                            width: 20px;
+                            height: 20px;
+                            border-width: 8px;
+                        }
+                    }
+
+                    span:not(.step) { 
+                        top: 8px; 
+
+                        @media (max-width: $screen-md-min) { 
+                            top: -9px;
+                        }
+                    }
+                }
+
+                &:not(:last-child):after {
+                    content: '';
+                    width: 3px;
+                    height: 100%;
+                    top: 25px;
+                    background-color: var(--stepper-bg);
+                    display: block;
+                    position: absolute;
+                    left: 18px;
+
+                    @media (max-width: $screen-md-min) {
+                        width: 2px;
+                        left: 9px;
+                        height: 90%;
+                        top: 20px;
+                    }
+                }
+            }
+
+            &.passed {
+                > * {
+                    span:not(.step) {
+                        @media (max-width: $screen-md-min) { top: -4px; }
+                    }
+
+                    &:before {
+                        @media (max-width: $screen-md-min) { background-image: none; }
+                    }
+                }
+                
+                + .active {
+                    > * {
+                        &:after {  
+                            background: linear-gradient(180deg, var(--stepper-visited-bg) 0%, var(--stepper-active-border-color) 50%, var(--stepper-bg) 50%, var(--stepper-bg) 100%);
+                            background-size: auto 200%;
+                            background-position-y: 0%;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+
+// Stepper vertical inside a container
+.stepper.stepper-vertical.stepper-content {
+    ul {
+        > li {
+            box-shadow: $shadow-10 var(--module-container-shadow);
+            background: var(--stepper-wrapper-bg);
+            padding: 25px;
+            border-radius: $border-radius-10;
+            margin-bottom: 20px;
+
+            @media (max-width: $screen-md-min) { 
+                margin-bottom: 0;
+                border-radius: 0;
+                padding: 29px 25px 0;
+
+                &:first-child { 
+                    border-radius: 20px 20px 0 0; 
+                }
+            }
+
+            > * {
+                min-height: 30px;
+
+                &:after {
+                    height: calc(100% + 55px);
+                    top: calc(-100% + -55px);
+
+                    @media (max-width: $screen-md-min) { 
+                        top: calc(-100% + -30px);
+                    }
+                }
+            }
+
+            .panel { 
+                opacity: 0;
+                visibility: hidden;
+                height: 0;
+                box-shadow: none;
+                padding-left: 40px;
+                margin: 0;
+            }
+
+            &.active {
+                padding-top: 22px;
+                padding-bottom: 28px;
+
+                @media (max-width: $screen-md-min) {
+                    padding-bottom: 0px;
+                }
+
+                &:not(:last-child):after { 
+                    left: 43px; 
+                    
+                    @media (max-width: $screen-md-min) {
+                        left: 34px;
+                    }
+                }
+
+                > * {
+                    &:after {
+                        @media (max-width: $screen-md-min) { 
+                            top: calc(-100% + -30px);
+                        }
+                    }
+                }
+
+                .panel { 
+                    opacity: 1;
+                    visibility: visible;
+                    height: 100%;
+                }
+            }
+
+            &:last-child { 
+                max-height: 100%; 
+
+                @media (max-width: $screen-md-min) { 
+                    border-radius: 0 0 20px 20px ; 
+                }
+            }
+        }
+    }
+
+}

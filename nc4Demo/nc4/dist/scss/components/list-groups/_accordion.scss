@@ -1,0 +1,155 @@
+
+// Accordion / Collapsible list
+
+.panel, 
+.panel-group {
+    .panel-heading {
+        .panel-title { 
+            [data-toggle="collapse"] {
+                padding: 0 4px;
+                margin: 0 -4px;
+
+                .caret { 
+                    margin-left: 8px; 
+                    top: -2px;
+                    position: relative;
+                }
+            }
+        }
+
+        // arrow styling for 'toggle' trigger
+        [data-toggle="collapse"] {
+            .caret {
+                margin-right: 10px; 
+
+                &.caret-large-blue { background-color: var(--caret-primary-bg); }
+
+                &:not([class*='caret-']) { background-color: var(--caret-default-bg); }
+            }
+
+            &:hover {
+                .caret {
+                    &.caret-large-blue { background-color: var(--anchor-hover-color); }
+
+                    &:not([class*='caret-']) { background-color: var(--anchor-hover-color); }
+                }
+            }
+
+          
+            &:not(.collapsed) {
+                // large caret
+                .caret {
+                    &[class*=caret-large] {
+                        transform: rotate(180deg);
+                    }
+                }
+
+            }
+        }
+    }
+
+    .panel-body {
+        .panel-heading + .panel-collapse {
+            .panel-body { 
+                padding-left: 20px; 
+                padding-bottom: 12px;
+            }
+        }
+    }
+}
+
+.panel-group {
+    [data-toggle="collapse"] {
+        display: inline-block;
+        font-weight: $normal;
+    }
+
+    > .panel {
+        .panel-body { 
+            padding-top: 20px; 
+
+            h3 { 
+                font-weight: $bold; 
+                font-size: $font-size-base;
+            }
+        }
+
+        &:last-child {
+            > .panel-heading .collapsed {
+                margin-bottom: 18px;
+            }
+        }
+
+        > .panel-collapse {
+            > .panel-body {
+                padding-top: 0;
+            }
+        } 
+    }
+
+    .panel-collapse {
+        .panel-heading {
+            padding-top: 15px;
+
+            .panel-title { 
+                [data-toggle="collapse"] {   
+                    &:not(.collapsed) { 
+                        //font-weight: $bold; 
+                        .caret { transform: rotate(180deg); }
+                    }
+
+                    .caret { margin-left: 2px; }
+                }
+            }
+        }
+
+        &.collapse {
+            display: none;
+    
+            &.in {
+                display: block;
+            }
+        }
+
+        > .panel-body {
+            .panel-collapse.collapse.in {
+                &:after, 
+                &:before {
+                    content: "";
+                    display: block;
+                    height: 100%;
+                    position: absolute;
+                    top: 10px;
+                    left: -30px;
+                }
+
+                &:after {
+                    background: var(--module-container-active-bg-color);
+                    width: calc(100% + 60px);
+                    z-index: 0; 
+                }
+
+                &:before {
+                    background: var(--module-container-active-before-color);
+                    width: 5px;
+                    z-index: 1;
+                }
+
+                .panel-body {
+                    z-index: 1;
+                    position: relative;
+                }
+            }
+
+            h4.panel-title {
+                z-index: 1;
+                position: relative;
+            }
+
+            > .panel { 
+                position: relative; 
+                background: transparent;
+            }
+        }
+    }
+}

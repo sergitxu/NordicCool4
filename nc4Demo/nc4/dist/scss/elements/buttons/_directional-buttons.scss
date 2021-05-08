@@ -1,0 +1,212 @@
+
+// Directional buttons style declaration
+.btn {
+    //# General styles
+    &.left, &.right {
+        position: relative;
+
+        //### Defining the tip/arrow of the button, on normal dimension (height: 30px)
+        &::before {
+            display: block;
+            position: absolute;
+            content: '';
+
+            width: 16px;
+            height: 16px;
+            top: 6px;
+
+            background-color: var(--button-bg);
+
+            transform: rotate(45deg) skew(11deg, 11deg);
+        } // END '.btn.right::before' and '.btn.left::before'
+
+        // hover state
+        &:hover {
+            &::before { background-color: var(--button-hover-bg); }
+        }
+
+        // pressed/selected state
+        &:active, &.active {
+            border-color: var(--button-active-border-color);
+
+            &::before { background-color: var(--button-active-bg); }
+        }
+
+        // disabled state
+        &:disabled, &.disabled,
+        :disabled &, .disabled & {
+            border-color: var(--button-disabled-border-color);
+
+            &::before { background-color: var(--button-disabled-bg); }
+        }
+
+        //### and, on big buttons (height: 48px)
+        &.btn-lg {
+            &::before {
+                width: 28px;
+                height: 28px;
+                top: 9px;
+
+                transform: rotate(45deg) skew(11deg, 11deg);
+            }
+        } // END '.btn.btn-lg.right' and '.btn.btn-lg.left'
+
+
+        //## General style for Directional button primary theme
+        &.btn-primary {
+            &::before {
+                background-color: var(--button-primary-bg);
+                box-shadow: none;
+            }
+
+            // hover state
+            &:hover {
+                &::before {
+                    background-color: var(--button-primary-hover-bg);
+                    box-shadow: none;
+                }
+            }
+
+            // pressed/selected state
+            &:active, &.active {
+                border-color: var(--button-primary-active-border-color);
+
+                &::before { background-color: var(--button-primary-active-bg); }
+            }
+
+            // disabled state
+            &:disabled, &.disabled,
+            :disabled &, .disabled & {
+                &::before { background-color: var(--button-disabled-bg); }
+            }
+        } // END '.btn.btn-primary.right' and '.btn.btn-primary.left'
+    } // END '.btn.right' and '.btn.left'
+
+    //# Defining the button tip/arrow for different state of the button
+    //## Left button
+    &.left {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        margin-left: 8px;
+        
+        &::before {
+            left: -8px;
+
+            border-left-color: var(--button-border-color);
+            border-bottom-color: var(--button-border-color);
+            box-shadow: inset 2px -2px 0 -1px var(--button-border-color);
+        }
+
+        // hover state
+        &:hover {
+            &::before { box-shadow: inset 2px -2px 0 -1px var(--button-hover-border-color); }
+        }
+
+        // focus state
+        &:focus {
+            &::before { box-shadow: inset 3px -3px 0 -1px var(--button-focus-border-color); }
+        }
+
+        // pressed/selected state
+        &:active, &.active {
+            &::before { box-shadow: inset 2px -2px 0 -1px var(--button-active-border-color); }
+        }
+
+        // disabled state
+        &:disabled, &.disabled,
+        :disabled &, .disabled & {
+            &::before { box-shadow: inset 2px -2px 0 -1px var(--button-disabled-border-color); }
+        }
+
+        // large dimensions
+        &.btn-lg {
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            margin-left: 15px;
+
+            &::before { left: -14px; }
+        } // END '.btn.btn-lg.left'
+
+
+        //### Left button - primary theme
+        &.btn-primary {
+            &:focus {
+                &::before { box-shadow: inset 3px -3px 0 -1px var(--button-focus-border-color), inset 4px -4px 0 -1px var(--neutral-05); }
+            }
+    
+            &:active:focus {
+                &::before { box-shadow: none; }
+            }
+
+            // disabled state
+            &:disabled, &.disabled,
+            :disabled &, .disabled & {
+                &::before { box-shadow: inset 2px -2px 0 -1px var(--button-disabled-border-color); }
+            }
+        } // END '.btn.btn-primary.left'
+    } // END '.btn.left'
+
+
+    //## Right buton
+    &.right {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        margin-right: 10px;
+        
+        &::before {
+            right: -8px;
+
+            border-right-color: var(--button-border-color);
+            border-top-color: var(--button-border-color);
+            box-shadow: inset -2px 2px 0 -1px var(--button-border-color);
+        }
+
+        // hover state
+        &:hover {
+            &::before { box-shadow: inset -2px 2px 0 -1px var(--button-hover-border-color); }
+        }
+
+        // focus state
+        &:focus {
+            &::before { box-shadow: inset -3px 3px 0 -1px var(--button-focus-border-color); }
+        }
+
+        // pressed/selected state
+        &:active, &.active {
+            &::before { box-shadow: inset -2px 2px 0 -1px var(--button-active-border-color); }
+        }
+
+        // disabled state
+        &:disabled, &.disabled,
+        :disabled &, .disabled & {
+            &::before { box-shadow: inset -2px 2px 0 -1px var(--button-disabled-border-color); }
+        }
+
+        // large dimensions
+        &.btn-lg {
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            margin-right: 17px;
+
+            &::before { right: -14px; }
+        } // END '.btn.btn-lg.right'
+
+
+        //### Right button - primary theme
+        &.btn-primary {
+            &:focus {
+                &::before { box-shadow: inset -3px 3px 0 -1px var(--button-primary-focus-border-color), inset -4px 4px 0 -1px var(--button-primary-focus-inner-shadow-color); }
+            }
+    
+            &:active:focus {
+                &::before { box-shadow: none; }
+            }
+
+            // disabled state
+            &:disabled, &.disabled,
+            :disabled &, .disabled & {
+                &::before { box-shadow: inset -2px 2px 0 -1px var(--button-disabled-border-color); }
+            }
+        } // END '.btn.btn-primary.right'
+    } // END '.btn.right'
+} // END '.btn'

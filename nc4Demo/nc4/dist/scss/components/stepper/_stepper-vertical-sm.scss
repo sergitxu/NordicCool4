@@ -1,0 +1,57 @@
+
+// Stepper - vertical 
+.stepper.stepper-vertical.stepper-vertical-sm {
+    ul {
+        > li {
+            > * {
+                padding-left: 48px;
+                padding-top: 0;
+                min-height: 45px;
+
+                &:after {
+                    width: 2px;
+                    left: 9px;
+                }
+
+                &:before {
+                    width: 16px;
+                    height: 16px;
+                    left: 2px;
+                }
+
+                span:not(.step) { 
+                    top: -5px;
+                    position: relative;
+                }
+            }
+
+            &.active {
+                > * {
+                    &:before {
+                        width: 20px;
+                        height: 20px;
+                        border-width: 8px;
+                        left: 0;
+                    }
+
+                    span:not(.step) { top: -2px; }
+                }
+            }
+
+            &:not(:last-child):after {                
+                width: 2px;
+                left: 9px;
+                height: 90%;
+                top: 20px;
+            }
+
+            &.passed {
+                > * {
+                    span:not(.step) { top: -4px; }
+
+                    &:before { background-image: none; }
+                }
+            }
+        }
+    }
+}

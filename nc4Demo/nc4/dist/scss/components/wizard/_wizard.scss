@@ -1,0 +1,451 @@
+
+// Wizard main wrapper
+.wizard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    // wizard item general style
+    .wizard-item,
+    .wizard-item.dropdown {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        flex: 1;
+
+        height: 48px;
+        padding: 3px 30px;
+
+        color: var(--button-text-color);
+
+        font: { 
+            size: $font-size-sm;
+            weight: $normal;
+        }
+        line-height: 4.2rem;
+        text: {
+            align: left;
+            overflow: ellipsis;
+            decoration: none;
+            shadow: none;
+        }
+        vertical-align: middle;
+        white-space: nowrap;
+
+        border: {
+            width: 1px 0;
+            style: solid;
+            color: var(--button-border-color) transparent;
+        }
+        border-radius: 0;
+        background-color: var(--button-bg);
+        box-shadow: $shadow-20 var(--button-shadow-color);
+
+        outline: 0;
+        user-select: none;
+        touch-action: manipulation;
+        box-sizing: border-box;
+
+        // wizzard arrow general style
+        &::before,
+        &::after {
+            display: block;
+            position: absolute;
+            content: '';
+
+            border: {
+                width: 1px 1px 0 0;
+                style: solid;
+                color: transparent;
+            }
+            transform: rotate(45deg) skew(18deg, 18deg);
+        } // END '.wizard .wizard-item::before'
+
+        // left arrow part
+        &::before {
+            width: 26px;
+            height: 26px;
+            top: 10px;
+            left: -13px;
+
+            border-color: var(--button-inner-border-color);
+            background-color: transparent;
+        } // END '.wizard .wizard-item::before'
+
+        // right arrow part
+        &::after {
+            width: 24px;
+            height: 24px;
+            top: 11px;
+            right: -12px;
+
+            background-color: var(--button-bg);
+        } // END '.wizard .wizard-item::after'
+
+        // first wizard item
+        &:first-child {
+            border-left: 1px solid var(--button-border-color);
+
+            &::before { display: none; }
+
+            &:focus:not(:active) { box-shadow: inset 1px 1px 0 0 var(--button-focus-border-color), inset 0 -1px 0 0 var(--button-focus-border-color), $shadow-20 var(--button-focus-shadow-color); }
+        } // END '.wizard .wizard-item:first-child'
+
+        // wizard items z-index order
+        &:nth-last-child(2)  { z-index:  2; }
+        &:nth-last-child(3)  { z-index:  3; }
+        &:nth-last-child(4)  { z-index:  4; }
+        &:nth-last-child(5)  { z-index:  5; }
+        &:nth-last-child(6)  { z-index:  6; }
+        &:nth-last-child(7)  { z-index:  7; }
+        &:nth-last-child(8)  { z-index:  8; }
+        &:nth-last-child(9)  { z-index:  9; }
+        &:nth-last-child(10) { z-index: 10; }
+        &:nth-last-child(11) { z-index: 11; }
+        &:nth-last-child(12) { z-index: 12; }
+        &:nth-last-child(13) { z-index: 13; }
+        &:nth-last-child(14) { z-index: 14; }
+        &:nth-last-child(15) { z-index: 15; }
+        &:nth-last-child(16) { z-index: 16; }
+        &:nth-last-child(17) { z-index: 17; }
+        &:nth-last-child(18) { z-index: 18; }
+        &:nth-last-child(19) { z-index: 19; }
+ 
+        // last wizard item specific style
+        &:last-child {
+            border-right: 1px solid var(--button-border-color);
+            z-index: 1;
+
+            &::after { display: none; }
+
+            &:focus:not(:active) { box-shadow: inset 0 1px 0 0 var(--button-focus-border-color), inset -1px -1px 0 0 var(--button-focus-border-color), $shadow-20 var(--button-focus-shadow-color); }
+
+        } // END '.wizard .wizard-item:last-child'
+
+        // wizard item on hover state
+        &:hover {
+            border-color: var(--button-hover-border-color);
+            background-color: var(--button-hover-bg);
+            box-shadow: $shadow-20 var(--button-hover-shadow-color);
+
+            &::before { border-color: var(--button-hover-border-color); }
+
+            &::after { background-color: var(--button-hover-bg); }
+
+            + .wizard-item {
+                &, &:disabled, &.disabled {
+                    &::before { border-color: var(--button-hover-border-color); }
+                }
+            } // END '.wizard .wizard-item:hover + .wizard-item'
+        } // END '.wizard .wizard-item:hover'
+
+        // wizard item on focus state
+        &:focus:not(:active) {
+            outline: none;
+
+            border-color: var(--button-focus-border-color);
+            box-shadow: inset 0 1px 0 0 var(--button-focus-border-color), inset 0 -1px 0 0 var(--button-focus-border-color), $shadow-20 var(--button-focus-shadow-color);
+
+            &::before {
+                border-color: var(--button-focus-border-color);
+                box-shadow: 1px -1px 0 0 var(--button-focus-border-color);
+            } // END '.wizard .wizard-item:focus:not(:active)::before'
+
+            + .wizard-item {
+                &::before {
+                    border-color: var(--button-focus-border-color);
+                    box-shadow: 1px -1px 0 0 var(--button-focus-border-color);
+                }
+            } // END '.wizard .wizard-item:focus:not(:active) + .wizard-item'
+        } // END '.wizard .wizard-item:focus:not(:active)'
+
+        // wizard item on pressed state
+        &:active {
+            border-color: var(--button-active-border-color);
+            background-color: var(--button-active-bg);
+            box-shadow: none;
+
+            &::before {
+                border-color: var(--button-active-border-color);
+                box-shadow: 6px 0 4px -4px var(--button-shadow-color);
+            }
+
+            &::after {
+                background-color: var(--button-active-bg);
+                border-top-color: transparent;
+                box-shadow: inset -2px 4px 6px -7px var(--button-shadow-color);
+            }
+
+            + .wizard-item {
+                &, &:disabled, &.disabled {
+                    &::before {
+                        border-color: var(--button-border-color);
+                        background-color: var(--button-active-bg);
+                        box-shadow: none;
+                    }
+                }
+
+                &.active {
+                    &::before {
+                        border-color: var(--wizard-selected-border-color);
+                    }
+                }
+            } // END '.wizard .wizard-item:active + .wizard-item'
+        } // END '.wizard .wizard-item:active'
+
+        // wizard item on disabled state
+        &:disabled, &.disabled {
+            pointer-events: none;
+            cursor: default;
+
+            color: var(--button-disabled-text-color);
+            border-color: var(--button-disabled-border-color);
+            box-shadow: none;
+        
+            &::before {
+                border-color: var(--button-disabled-border-color);
+                box-shadow: none;
+            }
+
+            &::after {
+                border: 0;
+                box-shadow: none;
+            }
+
+            &:first-child,
+            &:last-child { box-shadow: none; }
+
+            &:focus {
+                border-color: var(--button-disabled-border-color);
+                box-shadow: none;
+            }
+
+            + .wizard-item {
+                &:not(:disabled):not(.disabled) {
+                    &:hover {
+                        &::before { border-color: var(--button-hover-border-color); }
+                    }
+
+                    &:focus:not(:active) {
+                        &::before { border-color: var(--button-focus-border-color); }
+                    }
+
+                    &, &:active {
+                        &::before { border-color: var(--button-border-color); }
+                    }
+                } // END '.wizard .wizard-item:disabled + .wizard-item:not(:disabled):not(.disabled)'
+
+                &:disabled, &.disabled {
+                    &, &:focus {
+                        &::before {
+                            border-color: var(--button-disabled-inner-border-color);
+                            box-shadow: none;
+                        }
+                    }
+                } // END '.wizard .wizard-item:disabled + .wizard-item:disabled'
+            } // END '.wizard .wizard-item:disabled + .wizard-item' or '.wizard .wizard-item.disabled + .wizard-item'
+        } // END '.wizard .wizard-item:disabled' or '.wizard .wizard-item.disabled'
+
+        // wizard item selected and visited general style
+        &.visited, &.visited:active, &.visited:focus,
+        &.active, &.active:active {
+            pointer-events: none;
+            cursor: default;
+
+            border-color: var(--wizard-selected-border-color);
+            background-color: var(--button-selected-bg);
+            box-shadow: none;
+
+            &::before {
+                border-color: var(--wizard-selected-border-color);
+                box-shadow: none;
+            } // END '.wizard .wizard-item.active + .wizard-item::before' or '.wizard .wizard-item.visited + .wizard-item::before'
+
+            &:first-child,
+            &:last-child { box-shadow: none; }
+
+            + .wizard-item {
+                &::before {
+                    border-color: var(--wizard-selected-border-color);
+                    box-shadow: none;
+                }
+            } // END '.wizard .wizard-item.active + .wizard-item' or '.wizard .wizard-item.visited + .wizard-item'
+        } // END '.wizard .wizard-item.active' or '.wizard .wizard-item.visited'
+
+        // wizard item active/selected
+        &.active {
+            &::after { background-color: var(--button-selected-bg); }
+
+            &:not(:focus) {
+                + .wizard-item {
+                    &:hover:not(:active):not(:focus) {
+                        &::before { border-color: var(--button-hover-border-color); }
+                    }
+
+                    &:focus:not(:active) {
+                        &::before {
+                            border-color: var(--button-focus-border-color);
+                            box-shadow: 1px -1px 0 0 var(--button-focus-border-color);
+                        }
+                    } // END '.wizard .wizard-item.active:not(:focus) + .wizard-item:focus'
+
+                    &:disabled, &.disabled {
+                        &, &:focus {
+                            &::before {
+                                border-color: var(--wizard-selected-border-color);
+                                box-shadow: 6px 0 4px -4px var(--button-shadow-color);
+                            }
+                        }
+                    } // END '.wizard .wizard-item.active:not(:focus) + .wizard-item:disabled'
+                } // END '.wizard .wizard-item.active:not(:focus) + .wizard-item'
+            } // END '.wizard .wizard-item.active:not(:focus)'
+
+            + .wizard-item {
+                &:active {
+                    &::before {
+                        border-color: var(--wizard-selected-border-color);
+                        box-shadow: 6px 0 4px -4px var(--button-shadow-color);
+                    }
+                } // END '.wizard .wizard-item.active + .wizard-item:active'
+            } // END '.wizard .wizard-item.active + .wizard-item'
+        } // END '.wizard .wizard-item.active'
+
+        &.visited {
+            &, &:focus {
+                &, &::after { background-color: var(--button-bg); }
+            }
+
+            // checked icon for complete/visited state
+            &, &:hover, &:focus, &:active {
+                background: {
+                    image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2213%22%20viewBox%3D%220%200%2016%2013%22%3E%3Cpath%20id%3D%22svg%5f1%22%20d%3D%22m1.224%2C5.871l-1.224%2C1.241s2.446%2C2.771%204.64%2C5.57c5.736%2C-6.936%2010.687%2C-11.882%2010.687%2C-11.882l-0.736%2C-0.8a56.256%2C56.256%200%200%200%20-9.845%2C9.265c-1.554%2C-1.686%20-3.522%2C-3.394%20-3.522%2C-3.394z%22%20fill%3D%22%2368a611%22%2F%3E%3C%2Fsvg%3E");
+                    position: right 9px center;
+                    repeat: no-repeat;
+                }
+            }
+
+            + .wizard-item {
+                &:focus:not(.visited):not(:active):not(:disabled):not(:disabled) {
+                    &::before {
+                        border-color: var(--button-focus-border-color);
+                        box-shadow: 1px -1px 0 0 var(--button-focus-border-color);
+                    }
+                } // END '.wizard .wizard-item.visited + .wizard-item:focus'
+            } // END '.wizard .wizard-item.visited + .wizard-item'
+        } // END '.wizard .wizard-item.visited'
+
+        // style for next wizard item inline
+        + .wizard-item {
+            &:disabled, &.disabled {
+                &, &:focus {
+                    &::before {
+                        border-color: var(--button-border-color);
+                        box-shadow: 6px 0 4px -4px var(--button-shadow-color);
+                    }
+                }
+            } // END '.wizard .wizard-item + .wizard-item:disabled'
+        } // END '.wizard .wizard-item + .wizard-item'
+
+
+        &.dropdown {
+            max-width: 60px;
+            margin: 0;
+            padding: 0;
+            
+            &.open {
+                box-shadow: none;
+            }
+        }
+
+        &.hide {
+            display: none;
+        }
+
+        .dropdown-toggle {
+            &:hover, &:focus {
+                i {
+                    &, &::before, &::after {
+                        background: var(--wizard-tabdrop-color);
+                    }
+                }
+            }
+        }
+
+        .dropdown-toggle {
+            padding: 12px 30px 16px 30px;
+
+            &::before {
+                display: none;
+            }
+
+            &:focus {
+                outline: 0;
+                box-shadow: none;
+            }
+
+            i {
+                top: 23px;
+                left: 22px;
+
+                &, &::before, &::after {
+                    display: block;
+                    content: "";
+                    position: absolute;
+                    width: 4px;
+                    height: 4px;
+                    padding: 0;
+                    border-radius: 4px;
+                    background:  var(--wizard-tabdrop-color);
+                }
+
+                &::before {
+                    top: 0;
+                    left: 10px;
+                }
+
+                &::after {
+                    top: 0;
+                    left: 21px;
+                }
+            }
+        }
+
+        .dropdown-menu {
+            width: auto;
+            top: 48px;
+            right: 0;
+
+            .wizard-item {
+                height: 36px;
+                padding: 0 18px;
+                line-height: 36px;
+                border: 0;
+                box-shadow: none;
+
+                &::before, &::after {
+                    display: none;
+                }
+
+                &:focus {
+                    box-shadow: inset 0 0 0 1px $primary-blue;
+                }
+            }
+        }
+        
+
+    } // END '.wizard .wizard-item'
+} // END '.wizard'
+
+//===
+
+
+.wizard {
+    // background-color: $neutral-05;
+
+
+
+}

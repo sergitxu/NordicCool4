@@ -1,0 +1,222 @@
+
+// Dropdown buttons style declaration
+//# Dropdown/dropup wrapper
+.dropdown,
+.dropup {
+    display: inline-block;
+    position: relative;
+    margin: 0 6px 6px 0;
+
+    &.open {
+        z-index: 2;
+    }
+}
+
+
+//# Dropdown/dropup the trigger/button style.
+.dropdown-toggle {
+    position: relative;
+    margin: 0;
+    z-index: 1;
+    padding: 5px 30px 5px 15px;
+
+    &.btn-lg { 
+        padding-right: 30px; 
+
+        &::before { top: 20px; }
+    }
+
+    //## drodown arrow style
+    &::before {
+        display: block;
+        content: '';
+        position: absolute;
+
+        width: 9px;
+        height: 5px;
+        top: 12px;
+        right: 12px;
+
+        background-color: var(--dropdown-arrow-bg);
+        -webkit-mask: url(#{$arrow-icon-medium});
+        mask: url(#{$arrow-icon-medium});
+
+        .dropup & {
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+    }
+
+    .disabled &, :disabled &,
+    &.disabled, &:disabled {
+        &::before {
+            background-color: var(--dropdown-arrow-disabled-bg);
+        }
+    }
+
+    // removing shadow for open dropdown/dropup
+    .open & {
+        box-shadow: none;
+
+        &:focus:not(:active) {
+            box-shadow: inset 0 0 0 1px var(--button-focus-border-color), $shadow-20 var(--button-focus-shadow-color);
+        }
+    }
+
+    // alternative style for the dropdown trigger/button
+    &.btn-primary {
+        &::before {
+            background-color: var(--dropdown-primary-arrow-bg);
+        }
+
+        &:focus:not(:active) {
+            box-shadow: inset 0 0 0 1px var(--button-primary-focus-border-color), inset 0 0 0 2px var(--button-primary-focus-inner-shadow-color);
+        }
+
+        .disabled &, :disabled &,
+        &.disabled, &:disabled {
+
+            &::before {
+                background-color: var(--dropdown-arrow-disabled-bg);
+            }
+
+            &:focus:not(:active) {
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+//#  Dropdown/Dropup content list
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    padding: 11px 0 5px;
+    top: calc(100% - 6px);
+
+    list-style: none;
+
+    background-color: var(--dropdown-menu-bg);
+    box-shadow: $shadow-30  var(--dropdown-menu-shadow-color);
+
+    // dropup menu list position
+    .dropup & {
+        top: unset;
+        bottom: calc(100% - 6px);
+
+        box-shadow: $shadow-30 var(--dropdown-menu-shadow-color);
+    }
+
+    .open > & {
+        display: block;
+    }
+
+    .disabled &, :disabled & {
+        display: none;
+    }
+
+    a, button {
+        display: block;
+        overflow: hidden;
+        box-sizing: border-box;
+
+        width: 100%;
+
+        color: inherit;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+
+//# Dropdown/dropp content items styling
+.dropdown-item,
+.dropdown-menu > li {
+    display: block;
+    overflow: hidden;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 6px 18px;
+
+    color: var(--dropdown-menu-text-color);
+
+    text-align: left;
+    font-size: $font-size-sm;
+    line-height: 1.8rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    border: 0;
+    background-color: var(--dropdown-menu-bg);
+    box-shadow: none;
+
+    &:not(a):not(button) {
+        padding: 0;
+
+        a, button {
+            padding: 6px 18px;
+        }
+    }
+
+    // active/selected state for content items
+    &.active {
+        color: var(--dropdown-menu-selected-text-color);
+    }
+
+    // hover state for content items
+    &:hover {
+        background-color: var(--dropdown-menu-hover-bg);
+    }
+
+    // focus state for content items
+    &:focus,
+    a:focus, button:focus {
+        outline: 0;
+        box-shadow: inset 0 0 0 2px var(--button-focus-border-color);
+    }
+
+    // pressed state for content items
+    &:active,
+    a:active, button:active {
+        background-color: var(--button-active-bg);
+        box-shadow: none;
+    }
+
+    // disabled state for content items
+    &.disabled, &:disabled {
+        &, a, button {
+            pointer-events: none;
+    
+            color: var(--button-disabled-text-color);
+            box-shadow: none;
+        }
+    }
+}
+
+
+//# Dropdown/dropp styling in button groups
+.btn-group {
+    > .dropdown, > .dropup {
+        .dropdown-toggle:before {}
+    }
+
+    &.btn-group-lg {
+        > .dropdown, > .dropup {
+            .dropdown-toggle:before {
+                top: 22px;
+            }
+        }
+    }
+
+    &.open {
+        position: relative;
+        z-index: 2;
+    }
+}

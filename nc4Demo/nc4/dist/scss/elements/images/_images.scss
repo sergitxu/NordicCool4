@@ -1,0 +1,39 @@
+
+// Imports
+
+img, svg {
+	vertical-align: middle;
+}
+
+img:not([alt]) {
+	border: 1px solid var(--image-no-alt-border-color);
+}
+
+.img-fluid, 
+.img-responsive {
+	@include img-fluid();
+}
+
+.img-rounded {
+	border-radius: 50%;
+}
+
+.img-squerkle {
+	-webkit-mask: url(#{$squerkle-patern});
+	mask: url(#{$squerkle-patern});
+	-webkit-mask-size: cover;
+	mask-size: cover;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+}
+
+.img-thumbnail {
+	padding: $thumbnail-padding;
+	background-color: $thumbnail-bg;
+	border: $thumbnail-border-width solid var(--thumbnail-border-color);
+	@include border-radius($thumbnail-border-radius);
+  
+	// Keep them at most 100% wide
+	@include img-fluid();
+  }
+  

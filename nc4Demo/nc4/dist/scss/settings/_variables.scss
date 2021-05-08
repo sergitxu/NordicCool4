@@ -1,0 +1,58 @@
+
+// NC v4.0 variables
+//
+//=== Table of Contents:
+//
+//  1. Color palette
+//  2. Shadow variables
+//  3. Path variables
+//  4. Borders
+//  5. Image thumbnails
+//  6.
+//  7. 
+//  8. 
+//  9. 
+// 10.
+// 11. 
+
+
+
+//=== Aditional SCSS Variables
+//=== 1. Color palette
+
+
+//=== 2. Shadow variables
+$shadow-50: shadow(50);
+$shadow-40: shadow(40);
+$shadow-30: shadow(30);
+$shadow-20: shadow(20);
+$shadow-10: shadow(10);
+
+
+//=== 3. Path variables
+$prefix-path: '../..' !default;  
+$image-path: '#{$prefix-path}/img' !default;
+$font-path: '#{$prefix-path}/fonts' !default;
+$icons-path: '#{$prefix-path}/img/vismaicons' !default;
+$tabs-graph-path: $image-path + '/tabs' !default; 
+
+
+//=== 4. Borders
+$border-color: var(--border-color) !default;
+$border-width: 1px !default;
+
+$border-radius-5: 0.5rem !default; 
+$border-radius-10: 1rem !default;  
+$border-radius-20: 2rem !default; 
+$border-radius-circle: 100% !default; 
+$border-radius: $border-radius-5 !default; 
+
+
+
+//=== 5. Image thumbnails
+$thumbnail-padding: .4rem !default; // old 4/16 -> 0.25rem !default;
+$thumbnail-bg: $white !default;
+$thumbnail-border-width: $border-width !default;
+$thumbnail-border-color: $border-color !default;
+$thumbnail-border-radius: $border-radius !default;
+// $thumbnail-box-shadow: 0 1px 2px rgba($black, .075) !default;

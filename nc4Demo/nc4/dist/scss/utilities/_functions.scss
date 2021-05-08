@@ -1,0 +1,198 @@
+
+//### Return only the intiger/number value (strip the unit type)
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+      @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+
+//### Return propiety for box-shadow from 'Shadow map'
+@function shadow($base) {
+  @if map-has-key($map: $shadow-map, $key: $base) {
+      $map-info: map-get($map: $shadow-map, $key: $base);
+      @return 0 map-get($map: $map-info, $key: distance) map-get($map: $map-info, $key: size) 0;
+  }
+  
+  @warn "The key #{$base} is not in the map: '$shadow-map'";
+  @return null;
+}
+
+
+
+//### Return propiety for a value from a specific scss map
+@function get-map-value($base, $keys...) {
+  $value: $base;
+
+  @each $key in $keys {
+    $value: map-get($value, $key);
+  }
+
+  @return $value;
+}
+
+
+
+//### Convert a "hex" color to "rgb"
+@function hex-to-rgb($color) {
+  @return red($color), green($color), blue($color);
+}
+
+
+
+//### Convert em's tp px
+@function emTpx($value, $base) {
+  @return strip-unit($value) * strip-unit($base) * 1px;
+}
+
+
+
+// Breakpoint viewport sizes and media queries.
+// Breakpoints are defined as a map of (name: minimum width), order from small to large:
+//    (xxs: 0px, xs: 550px, sm: 769px, md: 992px, lg: 1280px, xl: 1440px, xxl: 1680px)
+// The map defined in the `$grid-breakpoints` global variable is used as the `$breakpoints` argument by default.
+
+// Name of the next breakpoint, or null for the last breakpoint.
+//    >> breakpoint-next(sm)
+//    md
+//    >> breakpoint-next(sm, (xxs: 0px, xs: 550px, sm: 769px, md: 992px, lg: 1280px, xl: 1440px, xxl: 1680px))
+//    md
+//    >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl xxl))
+//    md
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+//    >> breakpoint-min(sm, (xxs: 0px, xs: 550px, sm: 769px, md: 992px, lg: 1280px, xl: 1440px, xxl: 1680px))
+//    769px
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+$min: map-get($breakpoints, $name);
+@return if($min != 0, $min, null);
+}
+
+// Maximum breakpoint width. Null for the largest (last) breakpoint.
+// The maximum value is calculated as the minimum of the next one less 0.02px to work around the limitations of `min-` and `max-` prefixes and viewports with fractional widths.
+// See https://www.w3.org/TR/mediaqueries-4/#mq-min-max
+// Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
+// See https://bugs.webkit.org/show_bug.cgi?id=178261
+//    >> breakpoint-max(sm, (xxs: 0px, xs: 550px, sm: 769px, md: 992px, lg: 1280px, xl: 1440px, xxl: 1680px))
+//    768.98px
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+$next: breakpoint-next($name, $breakpoints);
+@return if($next, breakpoint-min($next, $breakpoints) - .02px, null);
+}
+
+// Returns a blank string if smallest breakpoint, otherwise returns the name with a dash infront.
+// Useful for making responsive utilities.
+//    >> breakpoint-infix(xxs, (xxs: 0px, xs: 550px, sm: 769px, md: 992px, lg: 1280px, xl: 1440px, xxl: 1680px))
+//    ""  (Returns a blank string)
+//    >> breakpoint-infix(sm, (xxs: 0px, xs: 550px, sm: 769px, md: 992px, lg: 1280px, xl: 1440px, xxl: 1680px))
+//    "-sm"
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+@return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+}
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+$min: breakpoint-min($name, $breakpoints);
+@if $min {
+  @media (min-width: $min) {
+    @content;
+  }
+} @else {
+  @content;
+}
+}
+
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+$max: breakpoint-max($name, $breakpoints);
+@if $max {
+  @media (max-width: $max) {
+    @content;
+  }
+} @else {
+  @content;
+}
+}
+
+// Media that spans multiple breakpoint widths.
+// Makes the @content apply between the min and max breakpoints
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+$min: breakpoint-min($lower, $breakpoints);
+$max: breakpoint-max($upper, $breakpoints);
+
+@if $min != null and $max != null {
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+} @else if $max == null {
+  @include media-breakpoint-up($lower, $breakpoints) {
+    @content;
+  }
+} @else if $min == null {
+  @include media-breakpoint-down($upper, $breakpoints) {
+    @content;
+  }
+}
+}
+
+// Media between the breakpoint's minimum and maximum widths.
+// No minimum for the smallest breakpoint, and no maximum for the largest one.
+// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
+@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+$min: breakpoint-min($name, $breakpoints);
+$max: breakpoint-max($name, $breakpoints);
+
+@if $min != null and $max != null {
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+} @else if $max == null {
+  @include media-breakpoint-up($name, $breakpoints) {
+    @content;
+  }
+} @else if $min == null {
+  @include media-breakpoint-down($name, $breakpoints) {
+    @content;
+  }
+}
+}
+
+
+/// Replace `$search` with `$replace` in `$string`
+/// @author Hugo Giraudel
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function str-replace($string, $search, $replace: '') {
+$index: str-index($string, $search);
+
+@if $index {
+  @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+}
+
+@return $string;
+}
+
+
+// arrow tip for toolip and popover background image string definition.
+@function arrowTip($border: $neutral-05, $bg: $neutral-05) {
+$background-fill: str-replace('' + $bg, '#', '');
+$border-fill: str-replace('' + $border, '#', '');
+$result: "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2226%22%20viewBox%3D%220%200%2010%2026%22%3E%3Cg%3E%3Cg%20id%3D%22t%22%3E%3Cpath%20id%3D%22p1%22%20d%3D%22M11.427%2C23.5h-2V23a6.9%2C6.9%2C0%2C0%2C0-2.866-5.287L6.548%2C17.7l-.014-.01L1.521%2C14.017a2.5%2C2.5%2C0%2C0%2C1%2C0-4.032L6.459%2C6.363l.013-.009.012-.01A6.939%2C6.939%2C0%2C0%2C0%2C9.427%2C1V.5h2Z%22%20fill%3D%22%23" + $background-fill + "%22%2F%3E%3Cpath%20id%3D%22p2%22%20d%3D%22M10.927%2C23c.765-4.808%2C0-22%2C0-22h-1v.006A7.393%2C7.393%2C0%2C0%2C1%2C6.8%2C6.728l-.024.02-.025.018L1.817%2C10.388a2%2C2%2C0%2C0%2C0%2C0%2C3.225l5.012%2C3.675.029.021.027.023a7.463%2C7.463%2C0%2C0%2C1%2C3.042%2C5.662V23h1m1%2C1h-3V23a6.376%2C6.376%2C0%2C0%2C0-2.689-4.9L1.226%2C14.42a3%2C3%2C0%2C0%2C1%2C0-4.838L6.164%2C5.96C7.724%2C4.66%2C8.915%2C3.16%2C8.927%2C1V0h3Z%22%20fill%3D%22%23" + $border-fill + "%22%2F%3E%3C%2Fg%3E%3Crect%20id%3D%22m%22%20x%3D%229.9%22%20y%3D%22-1%22%20width%3D%222.2%22%20height%3D%2226%22%20fill%3D%22%23" + $background-fill + "%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E";
+
+@return $result;
+}
+
+
+
+
+
+     

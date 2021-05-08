@@ -1,0 +1,129 @@
+
+//=== Basic icon implementation
+.vismaicon {
+    display: inline-block;
+    position: relative;
+    top: 6px;
+    user-select: none;
+
+    &::before { 
+        display: block;
+        content: "" !important;
+        position: relative;
+        width: 24px;
+        height: 24px;
+        margin: 0 auto;
+
+        background-color: transparent;
+        background-position: 0 0;
+        background-repeat: no-repeat; 
+        -webkit-mask-size: cover;
+        mask-size: cover;
+    }
+
+    &:not(.vismaicon-filled) {
+        &::before { background-color: var(--icon-bg); }
+    }
+
+    // hover state, only for icon's in button or links wrappers
+    .hover:not(:active) > &, &.hover:not(:active),
+    .btn-link:hover:not(:active) > & {
+        &:not(.vismaicon-filled) {
+            &::before { background-color: var(--icon-hover-bg); }
+        }
+    }
+
+    // active state, only for icon's in button or links wrappers
+    .active &, &.active,
+    .btn-link:active &,
+    .btn-icon:active & {
+        &:not(.vismaicon-filled) {
+            &::before { background-color: var(--icon-bg); }
+        }
+    }
+
+    // selected state
+    .selected > & {
+        &::before { 
+            mask-position: -29px 0; 
+            -webkit-mask-position: -29px 0; 
+        }
+    }
+
+    // disabled state
+    .disabled &, &.disabled,
+    :disabled &, &:disabled,
+    .btn:disabled &,
+    .btn-link:disabled &,
+    .btn-icon:disabled & {
+        pointer-events: none;
+        
+        &:not(.vismaicon-filled) {
+            &::before { background-color: var(--icon-disabled-bg); }
+        }
+    } 
+
+    // '16px' icon version
+    &.vismaicon-sm {
+        top: 2px;
+
+        &::before {
+            width: 16px;
+            height: 16px;
+        }
+
+        // selected state
+        .selected & {
+            &::before { 
+                mask-position: -21px 0; 
+                -webkit-mask-position: -21px 0; 
+            }
+        }
+    }
+
+    .btn > & {
+        top: 0;
+        margin-right: 9px;
+    }
+
+    a > & {
+        margin-right: 1rem;
+    }
+
+    .btn > &,
+    .btn:hover:not(:active) > &,
+    .btn:active > & {
+        &:not(.vismaicon-facebook):not(.vismaicon-flickr):not(.vismaicon-google):not(.vismaicon-linkedin):not(.vismaicon-pinterest):not(.vismaicon-skype):not(.vismaicon-tumblr):not(.vismaicon-twitter):not(.vismaicon-vimeo):not(.vismaicon-youtube) {
+            &::before {
+                background-color: var(--button-icon); 
+            }
+        }
+    }
+
+    .btn-primary > &,
+    .btn-primary:hover:not(:active) > &,
+    .btn-primary:active > & {
+        &:not(.vismaicon-facebook):not(.vismaicon-flickr):not(.vismaicon-google):not(.vismaicon-linkedin):not(.vismaicon-pinterest):not(.vismaicon-skype):not(.vismaicon-tumblr):not(.vismaicon-twitter):not(.vismaicon-vimeo):not(.vismaicon-youtube) {
+            &::before {
+                background-color: var(--button-primary-icon); 
+            }
+        }
+    }
+
+    // disabled state for icons in primary color buttons
+    .disabled.btn-primary > &, .btn-primary > &.disabled,
+    .btn-primary:disabled > &, .btn-primary > &:disabled,
+    .btn.btn-primary > :disabled & {
+        opacity: .6;
+    }
+
+    .btn-icon > & {
+        margin-right: 0;
+    }
+}
+
+
+/**** Icons in the main navigation ****/
+.navbar .navbar-right li.icon {
+    span.vismaicon:not(.vismaicon-menu):before { background-position: 0 0; }
+}

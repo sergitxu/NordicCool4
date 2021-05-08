@@ -1,0 +1,76 @@
+
+// Button base styles
+.btn {
+    // display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    cursor: pointer;
+        
+    height: 30px;
+    padding: 3px 15px;
+    margin: 0 2px 6px 0;
+    max-width: 100%;
+    min-width: 160px;
+    @media (max-width: $screen-md-min) { min-width: 120px; }
+    @media (max-width: $screen-sm-min) { min-width: 100px; }
+        
+    color: var(--button-text-color);
+
+    font: {
+        size: $font-size-sm;
+        weight: $normal;
+    }
+    line-height: 1.8rem;
+    text: {
+        align: center;
+        overflow: ellipsis;
+        decoration: none;
+        shadow: none;
+    }
+    vertical-align: middle;
+    white-space: nowrap;
+    
+    border: {
+        width: 1px;
+        style: solid;
+        color: transparent;
+    }
+    border-radius: $border-radius-5;
+    
+    user-select: none;
+    touch-action: manipulation;
+    box-sizing: border-box;
+
+    //### Button base, focus state
+    &:focus { outline: none; }
+
+    //### Button base, disabled state
+    &:disabled, &.disabled,
+    :disabled &, .disabled & {
+        pointer-events: none;
+        cursor: default;
+    }
+
+    
+    //### Buttons and buttons group size
+    // //=== Small buttons
+    // &.btn-sm,
+    // .btn-group-sm & { }
+
+    //=== Large buttons
+    &.btn-lg,
+    .btn-group-lg & {
+        height: 48px;
+        padding: 3px 15px;
+
+        line-height: 36px; 
+    }
+
+    // block level buttons - those that span the full width of a parent
+    &.btn-block {
+        display: block;
+        width: 100%; 
+    }
+}

@@ -1,0 +1,109 @@
+// Stepper - horizontal (default)
+body.nav-space {   
+    @media (max-width: $screen-md-min) { 
+        .stepper:not(.stepper-vertical) {
+            top: 115px;
+
+            + .container { margin-top: 115px; }
+        }
+    }
+} // this applies for the case where the top navigation has 2 levels
+
+
+body {
+    @media (max-width: $screen-sm-min) { 
+        .stepper:not(.stepper-vertical) {
+            top: 67px;
+
+            + .container { margin-top: 70px; }
+        }
+    }
+} 
+
+.stepper:not(.stepper-vertical) {
+    @include make-container();
+    @include make-container-max-widths(); 
+    margin: 0 auto 50px;
+
+    @media (max-width: $screen-md-min) { 
+        max-width: 100%;
+    }
+
+    ul {
+        flex-direction: row;
+
+        > li {
+            > * {
+                text-align: center;
+                min-height: 75px;
+
+                &:before {
+                    right: 0;
+                    left: auto;
+                    bottom: 4px;
+                }
+
+                span {
+                    position: absolute;
+                    text-align: center;
+                    left: auto;
+                    right: -85px;
+                    padding: 0 5px;
+                }
+            }
+
+            &:first-child {
+                flex: 0 30px;
+                left: 0px;
+                
+                > * {
+                    span:not(.step) { right: -65px; }
+                }
+            }
+
+            &.active {
+                > * {
+                    span:not(.step) { 
+                        right: -80px; 
+                        top: 0px; 
+                    }
+                }
+
+                &:first-child {
+                    > * {
+                        span:not(.step) { right: -60px; }
+                    }
+                }
+            }
+
+            /* 6 items in the stepper  */
+            &:first-child:nth-last-child(6),
+            &:first-child:nth-last-child(6) ~ li {
+                > * span:not(.step) {
+                    @media (max-width: $screen-lg-min) { right: -63px; }
+                }
+
+                &.active {
+                    > * span:not(.step) {
+                        @media (min-width: $screen-md-min + 1) and (max-width: $screen-lg-min) { right: -55px; }
+                    }
+                }
+            }
+
+            /* 7 items in the stepper  */
+            &:first-child:nth-last-child(7),
+            &:first-child:nth-last-child(7) ~ li {
+                > * span:not(.step) {
+                    @media (max-width: $screen-xl-min) { right: -70px; }
+                    @media (max-width: $screen-lg-min) { right: -50px; }
+                }
+
+                &.active {
+                    > * span:not(.step) {
+                        @media (min-width: $screen-md-min + 1) and (max-width: $screen-lg-min) { right: -55px; }
+                    }
+                }
+            }
+        }
+    }
+} // END '.stepper'

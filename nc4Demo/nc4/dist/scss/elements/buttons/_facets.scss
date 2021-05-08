@@ -1,0 +1,147 @@
+
+// Button pills/facets
+.nav {
+    //
+    &.nav-pills {
+        margin: 0;
+        padding: 0;
+        
+        list-style: none;
+
+        li {
+            display: inline;
+        }
+
+        //## Base style for a button pills
+        a, button {
+            display: inline-block;
+            cursor: pointer;
+            padding: 2px 15px 3px;
+            margin-right: 10px;
+            margin-bottom: 6px;
+            min-width: 160px;
+            text-align: center;
+
+            color: var(--button-text-color);
+
+            font: {
+                size: $font-size-sm;
+                weight: $normal;
+            }
+            line-height: 1.8rem;
+            text-decoration: none;
+
+            outline: 0;
+            border: {
+                width: 1px;
+                style: solid;
+                color: var(--button-border-color);
+            }
+            border-radius: $border-radius-20;
+            background-color: var(--button-bg);
+            box-shadow: $shadow-20 var(--button-shadow-color);
+
+            //### pills hover state
+            &:hover {
+                border-color: var(--button-hover-border-color);
+                background-color: var(--button-hover-bg);
+                box-shadow: $shadow-20 var(--button-hover-shadow-color);
+            }
+
+            //### pills focus state
+            &:focus {
+                border-color: var(--button-focus-border-color);
+                box-shadow: inset 0 0 0 1px var(--button-focus-border-color), $shadow-20 var(--button-focus-shadow-color);
+            }
+
+            //### pills active/pressed state
+            &:active {
+                &, &.active {
+                    border-color: var(--button-active-border-color);
+                    background-color: var(--button-active-bg);
+                    box-shadow: none;
+                }
+            }
+        }
+
+        //### pills active/selected state
+        .active a, a.active,
+        .active button,
+        button.active {
+            pointer-events: none;
+            cursor: default;
+
+            &, &:focus {
+                border-color: var(--button-active-border-color);
+                background-color: var(--button-selected-bg);
+                box-shadow: none;
+            }
+        }
+
+        //### pills disabled state
+        .disabled a,
+        a.disabled,
+        .disabled button,
+        button.disabled,
+        button:disabled {
+            cursor: default;
+            pointer-events: none;
+
+            color: var(--button-disabled-text-color);
+
+            border-color: var(--button-disabled-border-color);
+            background-color: var(--button-disabled-bg);
+            box-shadow: none;
+        }
+
+
+        //# Alternative styling for pill/facet buttons
+        &.nav-pills-primary {
+            .active a,
+            a.active,
+            .active button,
+            button.active {
+                color: var(--button-primary-text-color);
+
+                border-color: var(--button-primary-border-color);
+                background-color: var(--button-primary-bg);
+                
+                &:disabled, &.disabled {
+                    color: var(--button-disabled-text-color);
+
+                    border-color: var(--button-disabled-border-color);
+                    background-color: var(--button-disabled-bg);
+                }
+            }
+        }
+
+
+        //# Disabled state for all pills in wrapper ('.nav.nav-pills')
+        :disabled &, .disabled &,
+        &:disabled, &.disabled {
+            a, button {
+                cursor: default;
+                pointer-events: none;
+
+                color: var(--button-disabled-text-color);
+
+                border-color: var(--button-disabled-border-color);
+                background-color: var(--button-disabled-bg);
+                box-shadow: none;
+            }
+
+            //# Alternative styling for pill/facet buttons
+            &.nav-pills-primary {
+                .active a,
+                a.active,
+                .active button,
+                button.active {
+                    color: var(--button-disabled-text-color);
+
+                    border-color: var(--button-disabled-border-color);
+                    background-color: var(--button-disabled-bg);
+                }
+            }
+        }
+    }
+}

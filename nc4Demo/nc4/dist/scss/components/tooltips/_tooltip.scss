@@ -1,0 +1,95 @@
+
+//Tooltip general style
+.tooltip {
+    display: none;
+    position: absolute;
+    min-width: 180px;
+    max-width: 420px;
+    padding: 12px 24px;
+    top: 0;
+    left: 0;
+
+    color: var(--body-font-color);
+    text-align: left;
+
+    border-radius: $border-radius-10;
+    border: {
+        width: 1px;
+        style: solid;
+        color: var(--tooltip-border-color);
+    }
+
+    background-color: var(--tooltip-bg);
+    box-shadow: var(--tooltip-shadow);
+
+    z-index: $zindex-tooltip;
+
+    &::before {
+        display: block;
+        position: absolute;
+        content: '';
+        width: 12px;
+        height: 26px; 
+        top: calc(#{'50% - 13px'});
+        left: -10px;
+
+        background: {
+            color: transparent;
+            image: var(--tooltip-arrow-tip);
+            position: 0 0;
+            repeat: no-repeat;
+        };
+    }
+
+    &.tooltip-error {
+        color: var(--tooltip-error-text);
+
+        border-color: var(--tooltip-error-border-color);
+        background-color: var(--tooltip-error-bg);
+        box-shadow: var(--tooltip-error-shadow);
+
+        &::before {
+            background-image: var(--tooltip-error-arrow-tip);
+        }
+    }
+
+    &.top {
+        text-align: center;
+
+        &::before {
+            top: unset;
+            bottom: -17px;
+            left: calc(#{'50% - 6px'});
+
+            transform: rotate(-90deg);
+        }
+    }
+
+    //&.right { }
+
+    &.bottom {
+        text-align: center;
+
+        &::before {
+            top: -17px;
+            left: calc(#{'50% - 6px'});
+
+            transform: rotate(90deg);
+        }
+    }
+
+    &.left {
+        text-align: right;
+
+        &::before {
+            right: -10px;
+            left: unset;
+
+            transform: rotate(180deg);
+        }
+    }
+
+    &.in {
+        display: block;
+    }
+}

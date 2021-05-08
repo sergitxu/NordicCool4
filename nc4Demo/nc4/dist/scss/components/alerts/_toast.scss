@@ -1,0 +1,88 @@
+
+//# Toasts
+.toast {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: var(--alert-info-border);
+    box-shadow: var(--alert-info-shadow);
+    color: var(--alert-info-text);
+    background: var(--alert-info-bg);
+    padding: 15px 35px 15px 50px;
+    margin-bottom: 25px;
+    line-height: 1.6; 
+    max-width: 450px;
+    display: block;
+    position: absolute; 
+    top: 36px;
+    z-index: 1001; 
+    left: calc(50% - 225px);
+    //position: relative;
+
+    &:before {
+        content:'';
+        width: 16px;
+        height: 16px;
+        display: block;
+        position: absolute;
+        top: calc(50% - 8px);
+        left: 20px;
+        mask: url('#{$icons-path}/informative-filled-icons/16_informative_icons.svg');
+        -webkit-mask: url('#{$icons-path}/informative-filled-icons/16_informative_icons.svg');
+        mask-position: -63px 0px;
+        -webkit-mask-position: -63px 0px;
+        mask-repeat: no-repeat;
+        -webkit-mask-repeat: no-repeat;
+        background-color: $blue-50;
+        }
+
+    .vismaicon-filled { display: none; }
+
+    &.toast-success {
+        border-color: var(--alert-success-border);
+        box-shadow: var(--alert-success-shadow);
+        background-color: var(--alert-success-bg);
+        color: var(--alert-success-text);
+
+        &:before { 
+            mask-position: 0 0; 
+            -webkit-mask-position: 0 0; 
+            background-color: $green-60;
+        }
+    }
+
+    &.toast-error,
+    &.toast-danger {
+        border-color: var(--alert-danger-border);
+        box-shadow: var(--alert-danger-shadow);
+        background-color: var(--alert-danger-bg);
+        color: var(--alert-danger-text);
+
+        &:before { 
+            mask-position: -21px 0; 
+            -webkit-mask-position: -21px 0; 
+            background-color: $red-60;
+        }
+    }
+
+    &.toast-warning {
+        border-color: var(--alert-warning-border);
+        box-shadow: var(--alert-warning-shadow);
+        background-color: var(--alert-warning-bg);
+        color: var(--alert-warning-text);
+        
+        &:before { 
+            mask-position: -42px 0; 
+            -webkit-mask-position: -42px 0; 
+            background-color: $orange-70;
+        }
+    }
+
+    //Close button 
+    .close {
+        position: absolute;
+        top: calc(50% - 6px);
+        right: 17px;
+        }
+    }
+

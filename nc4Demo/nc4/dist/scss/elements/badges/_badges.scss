@@ -1,0 +1,195 @@
+
+/*
+ * Badges/Labels 
+ */
+
+.badge,
+.label {
+    position: relative;
+    min-width: 30px;
+    top: 0;
+    padding: 2px 8px;
+    margin-right: 1px;
+
+    text-align: center;
+    font-size: 12px;
+    font-weight: $bold;
+    line-height: 16px;
+
+    border-radius: 20px;
+
+    &-sm {
+        padding: 1px 6px;
+        font-size: 10px;
+        line-height: 14px;
+        border-radius: 5px;
+    }
+
+    &,
+    &-primary {
+        color: var(--badge-text-color);
+        background-color: var(--badge-bg);
+        box-shadow: var(--badge-shadow);
+    }
+
+    &-secondary,
+    &-success {
+        color: $neutral-05;
+        background-color: var(--badge-success-bg);
+    }
+
+    &-info {
+        color: $neutral-05;
+        background-color: var(--badge-info-bg);
+    }
+
+    &-warning {
+        color: $neutral-05;
+        background-color: var(--badge-warning-bg);
+    }
+
+    &-danger {
+        color: $neutral-05;
+        background-color: var(--badge-danger-bg);
+        box-shadow: var(--badge-danger-shadow);
+    }
+
+    a & {
+        display: inline-block;
+        margin-left: 6px;
+        text-decoration: none;
+    }
+
+    .btn &, .nav-pills & {
+        margin-left: 6px;
+        box-shadow: none;
+    }
+
+    .btn:not(.btn-primary) &, .nav-pills & {
+        color: $neutral-05;
+
+        &:not(.badge-secondary):not(.badge-success):not(.badge-info):not(.badge-warning):not(.badge-danger) {
+            background-color: $primary-green;
+        }
+    }
+
+    .btn.btn-primary &,
+    .nav-pills.nav-pills-primary .active & {
+        background-color: $neutral-05;
+
+        &:not(.badge-secondary):not(.badge-success):not(.badge-info):not(.badge-warning):not(.badge-danger) {
+            background-color: $neutral-05;
+        }
+
+        &-success, &-secondary {
+            color: $primary-green;
+        }
+
+        &-info {
+            color: $primary-blue;
+        }
+
+        &-warning {
+            color: $primary-orange;
+        }
+
+        &-danger {
+            color: $primary-red;
+        }
+    }
+
+    .nav-pills.nav-pills-primary .active & {
+        &:not(.badge-secondary):not(.badge-success):not(.badge-info):not(.badge-warning):not(.badge-danger) {
+            color: $primary-neutral;
+        }
+    }
+}
+
+.badge.badge,
+.label.label {
+    .disabled &, :disabled & {
+        color: $neutral-60;
+
+        &-success, &-secondary {
+            color: $green-20;
+            background-color: $green-40;
+        }
+
+        &-info {
+            color: $blue-10;
+            background-color: $blue-20;
+        }
+
+        &-warning {
+            color: $orange-20;
+            background-color: $orange-40;
+        }
+
+        &-danger {
+            color: $red-20;
+            background-color: $red-30;
+        }
+    }
+
+    .disabled .btn.btn-primary &,
+    :disabled .btn.btn-primary &,
+    .btn.btn-primary:disabled &,
+    .btn.btn-primary.disabled & {
+        color: $neutral-60;
+        background-color: $neutral-05;
+
+        &-success, &-secondary {
+            color: $green-40;
+        }
+
+        &-info {
+            color: $blue-20;
+        }
+
+        &-warning {
+            color: $orange-40;
+        }
+
+        &-danger {
+            color: $red-30;
+        }
+    }
+}
+
+.badge {
+    :disabled .btn:not(.btn-primary) &,
+    .disabled .btn:not(.btn-primary) &,
+    .btn:not(.btn-primary):disabled &,
+    .btn:not(.btn-primary).disabled &,
+    :disabled .nav-pills &,
+    .disabled .nav-pills &,
+    .nav-pills:disabled &,
+    .nav-pills.disabled &,
+    .nav-pills :disabled &,
+    .nav-pills .disabled & {
+        &:not(.badge-secondary):not(.badge-success):not(.badge-info):not(.badge-warning):not(.badge-danger) {
+            color: $green-20;
+            background-color: $green-40;
+        }
+    }
+}
+
+.label {
+    box-shadow: none;
+
+    :disabled .btn:not(.btn-primary) &,
+    .disabled .btn:not(.btn-primary) &,
+    .btn:not(.btn-primary):disabled &,
+    .btn:not(.btn-primary).disabled &,
+    :disabled .nav-pills &,
+    .disabled .nav-pills &,
+    .nav-pills:disabled &,
+    .nav-pills.disabled &,
+    .nav-pills :disabled &,
+    .nav-pills .disabled &  {
+        &:not(.label-secondary):not(.label-success):not(.label-info):not(.label-warning):not(.label-danger) {
+            color: $green-20;
+            background-color: $green-40;
+        }
+    }
+}

@@ -1,0 +1,211 @@
+
+//# Table
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 18px;
+    border-spacing: 0;
+    border-collapse: separate;
+
+    box-shadow: $shadow-10 var(--table-shadow-color);
+
+    > caption {
+        text-align: left;
+        padding: 8px 17px;
+        }
+
+    > thead, > tbody, > tfoot {
+        background: var(--table-bg);
+
+        > tr {
+            > th, > td {
+                padding-left: 17px;
+                padding-right: 27px;
+                }
+            }
+        }
+
+    > thead {
+        > tr {
+            > th, > td {
+                border-right-width: 1px;
+                border-right-style: solid;
+                border-right-color: var(--table-border-color);
+                border-bottom: 1px solid var(--table-border-color);
+                min-height: 48px;
+                padding-top: 14px;
+                padding-bottom: 13px;
+                font-weight: $semibold;
+
+                &:last-child {
+                    border-right-width: 0;
+                    }
+                }
+            }
+        }
+
+    > tbody {
+        > tr {
+            &:nth-child(2n) > th,
+            &:nth-child(2n) > td {
+                background-color: var(--table-alt-bg);
+                }
+
+            > th, > td {
+                font-weight: $normal;
+                min-height: 36px;
+                padding-top: 8px;
+                padding-bottom: 8px;
+                background: url(#{$image-path}/dotted-on-white-vertical.svg) repeat-y transparent right top;
+
+                &:last-child { background-image: none; }
+                }
+            }
+        }
+
+    > tfoot {
+        > tr {
+            > th, > td { 
+                font-weight: normal;
+                padding-top: 17px;
+                padding-bottom: 18px;
+                border-top: 1px solid var(--table-border-color);
+
+                > p,
+                > .btn { margin-bottom: 0; }
+                }
+            }
+        }
+
+        
+    //## '.table-bordered' - add border on the tables in case the tables will be added on a white background
+    &.table-bordered {
+        border: 1px solid var(--table-border-color);
+        border-bottom: 0;
+        }
+
+
+    //## '.table-hover' - hover state for table fields (this applied to .table-active too)
+    &.table-active,
+    &.table-hover {
+        > thead { 
+            > tr {
+                > th, > td {
+                    &:hover {
+                        background-color: var(--table-hover-bg);
+                        border-right-color: var(--table-hover-border-color);
+                        border-bottom-color: var(--table-hover-border-color);
+                        box-shadow: -1px 0 0 var(--table-hover-border-color);
+                        cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+        > tbody {
+            > tr {
+                &:hover > th,
+                &:hover > td {
+                    background-color: var(--table-hover-bg);
+                    cursor: pointer;
+                    }
+                }
+            }
+        }
+
+
+    //## '.table-active' - active state for table fields
+    &.table-active {
+        > thead { 
+            > tr {
+                > th, > td {
+                    &:active {
+                        background-color: var(--table-active-bg);
+                        border-right-color: var(--table-active-border-color);
+                        border-bottom-color: var(--table-active-border-color);
+                        box-shadow: -1px 0 0 var(--table-active-border-color);
+                        }
+                    }
+                }
+            }
+
+        > tbody {
+            > tr {
+                &:active > th,
+                &.active > th,
+                &:active > td,
+                &.active > td {
+                    background-color: var(--table-selected-bg);
+                    cursor: pointer;
+
+                    &:first-child {
+                        position: relative;
+
+                        &:before {
+                            content: '';
+                            background: var(--table-selected-border-color);
+                            width: 5px;
+                            height: 100%;
+                            display: inline-block;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    //## '.table-condensed' - make tables more compact
+    &.table-condensed {
+        > thead { 
+            > tr {
+                > th, > td { 
+                    min-height: 30px;
+                    padding-top: 6px;
+                    padding-bottom: 6px;
+                    }
+                }
+            }
+
+        > tbody {
+            > tr {
+                > th, > td { 
+                    min-height: 27px;
+                    padding-top: 4px;
+                    padding-bottom: 4px;
+                    }
+                }
+            }
+    
+        > tfoot {
+            > tr {
+                > th, > td { 
+                    padding-top: 13px;
+                    padding-bottom: 13px;
+                    }
+                }
+            }
+        }
+    }
+
+
+//# Responsive tables
+.table-responsive {
+    min-height: .01%;
+    overflow-x: auto;
+
+    @media(max-width: $screen-md-min) {
+        width: 100%;
+        margin-bottom: 18px;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        box-shadow: $shadow-10 var(--table-shadow-color);
+
+        > .table { 
+            margin: 0; 
+            box-shadow: none;
+            }
+        }
+    }

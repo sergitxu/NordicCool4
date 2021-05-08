@@ -1,0 +1,202 @@
+
+//=== Basic vertical nav style
+
+.page-holder { 
+    padding-left: 300px;  
+    transition: padding-left 0.2s ease-in-out;
+
+    @media (max-width: $screen-md-min) {
+        padding-left: 50px;  
+    }
+
+    &.hidden-vert-menu {
+        padding-left: 90px;
+        transition: padding-left 0.2s ease-in-out;
+
+        @media (max-width: $screen-md-min) {
+            padding-left: 50px;  
+        }
+    }
+}
+
+.vertical-nav {
+    top: 66px; // When top navigation has only one level
+    height: calc(100vh - 66px); // When top navigation has only one level
+    left: 0;
+    position: fixed;
+    padding-bottom: 122px;
+    z-index: 1;
+    overflow: hidden;
+    width: 300px;
+	transition: width 0.2s ease-in-out;
+
+    &:after {
+        content: '';
+        display: none;
+        position: absolute;
+        width: 90px;
+        height: 100%;
+        top: 0;
+        right: -90px;
+    }
+
+    &.hidden-menu {
+        width: 90px;
+
+        @media (max-width: $screen-md-min) {
+            width: 50px;  
+        }
+
+        &:after { 
+            display: block; 
+            transition: width 0.2s ease-in-out;
+        }
+
+        ul li.show-nav > a:after { 
+            transform: rotateY(180deg); 
+            transition: width 0.2s ease-in-out;
+        }
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+ 
+        li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            a {
+                text-decoration: none;
+                display: block;
+                position: relative;
+
+                &:after {
+                    display: block;
+                    content: '';
+                    position: absolute;
+                    top: 19px;
+                    right: 15px;
+                    @include caret-large-default();
+                }
+
+                &:only-child:after { display: none; }
+            }
+
+            &.active,
+            &.active.active-child {
+                > a { 
+                    &:after { transform: rotate(180deg); }
+                }
+            }
+
+            &.disabled {
+                > a { 
+                    pointer-events: none;
+
+                    &:hover { cursor: not-allowed; }
+
+                    &:focus { outline: none; }
+                }
+            }
+
+            &.show-nav {
+                position: absolute;
+                right: 0;
+                bottom: 50px;
+
+                > a {
+                    width: 30px;
+                    height: 65px;
+                    display: block;
+                    text-indent: -9999px;
+                    padding: 0 !important;
+                    mask: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='66' viewBox='0 0 30 66'%3e%3cpath id='Container' d='M11.86,15.52C1.32,20.53.14,28.51,0,33H0c.12,4.48,1.3,12.46,11.84,17.47C24.15,56.33,29.34,57.9,30,66V0C29.34,8.1,24.15,9.67,11.86,15.52Z' fill='%230087e0'/%3e%3c/svg%3e ");
+                    -webkit-mask: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='66' viewBox='0 0 30 66'%3e%3cpath id='Container' d='M11.86,15.52C1.32,20.53.14,28.51,0,33H0c.12,4.48,1.3,12.46,11.84,17.47C24.15,56.33,29.34,57.9,30,66V0C29.34,8.1,24.15,9.67,11.86,15.52Z' fill='%230087e0'/%3e%3c/svg%3e ");
+                    mask-repeat: no-repeat;
+                    -webkit-mask-repeat: no-repeat;
+
+                    &:after {
+                        display: block;
+                        content: '';
+                        position: absolute;
+                        top: 27px;
+                        right: 7px;
+                        height: 14px;
+                        width: 14px;
+                        mask: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='14.437' height='13.993' viewBox='0 0 14.437 13.993'%3e%3cdefs%3e%3cfilter id='Arrows' x='0' y='0' width='14.437' height='13.993' filterUnits='userSpaceOnUse'%3e%3cfeOffset dy='1' input='SourceAlpha'/%3e%3cfeGaussianBlur stdDeviation='0.5' result='blur'/%3e%3cfeFlood flood-color='%23163e59' flood-opacity='0.2'/%3e%3cfeComposite operator='in' in2='blur'/%3e%3cfeComposite in='SourceGraphic'/%3e%3c/filter%3e%3c/defs%3e%3cg transform='matrix(1, 0, 0, 1, 0, 0)' filter='url(%23Arrows)'%3e%3cpath id='Arrows-2' data-name='Arrows' d='M5358.6,4541.85l-5-5a.515.515,0,0,1-.149-.351.5.5,0,0,1,.149-.4l5-5a.5.5,0,0,1,.7.7l-4.64,4.65,4.629,4.69a.5.5,0,0,1,0,.71.49.49,0,0,1-.69,0Zm-6.45-1.05-4-4a.529.529,0,0,1-.041-.69l4-4a.492.492,0,0,1,.7.69l-3.642,3.649,3.671,3.65a.479.479,0,0,1,0,.7.49.49,0,0,1-.69,0Z' transform='translate(-5346.5 -4530.5)' fill='%23252626'/%3e%3c/g%3e%3c/svg%3e ");
+                        -webkit-mask: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='14.437' height='13.993' viewBox='0 0 14.437 13.993'%3e%3cdefs%3e%3cfilter id='Arrows' x='0' y='0' width='14.437' height='13.993' filterUnits='userSpaceOnUse'%3e%3cfeOffset dy='1' input='SourceAlpha'/%3e%3cfeGaussianBlur stdDeviation='0.5' result='blur'/%3e%3cfeFlood flood-color='%23163e59' flood-opacity='0.2'/%3e%3cfeComposite operator='in' in2='blur'/%3e%3cfeComposite in='SourceGraphic'/%3e%3c/filter%3e%3c/defs%3e%3cg transform='matrix(1, 0, 0, 1, 0, 0)' filter='url(%23Arrows)'%3e%3cpath id='Arrows-2' data-name='Arrows' d='M5358.6,4541.85l-5-5a.515.515,0,0,1-.149-.351.5.5,0,0,1,.149-.4l5-5a.5.5,0,0,1,.7.7l-4.64,4.65,4.629,4.69a.5.5,0,0,1,0,.71.49.49,0,0,1-.69,0Zm-6.45-1.05-4-4a.529.529,0,0,1-.041-.69l4-4a.492.492,0,0,1,.7.69l-3.642,3.649,3.671,3.65a.479.479,0,0,1,0,.7.49.49,0,0,1-.69,0Z' transform='translate(-5346.5 -4530.5)' fill='%23252626'/%3e%3c/g%3e%3c/svg%3e ");
+                        mask-repeat: no-repeat;
+                        -webkit-mask-repeat: no-repeat;
+                        transition: width 0.2s ease-in-out;
+                    }
+                }
+
+                &.show-nav-primary {
+                    > a {
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 5px 0 0 5px;
+                        mask: none;
+                        -webkit-mask: none;
+
+                        &:after {
+                            top: 9px;
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+    ul { 
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-sizing: content-box;
+        width: 300px;
+        height: calc(100vh - 66px); // When top navigation has only one level
+        scrollbar-width: none;
+        padding-bottom: 120px;
+
+        ul {
+            padding: 0;
+            height: auto;
+        }
+
+        > li {
+            > a { padding: 12px 30px 12px 22px; }
+
+            &.active, &.active-child {
+                > ul { display: block; }
+            }
+
+            > ul {
+                padding-bottom: 6px;
+                display: none;
+                
+                > li {
+                    > a { padding: 9px 30px; }
+                }
+            }
+        }
+    }
+}
+
+
+/* When top navigation/main nav has 2 levels */
+.nav-space {
+    .vertical-nav {
+        @media (min-width: $screen-sm-min) {
+            top: 114px; // When top navigation has two levels
+            height: calc(100vh - 114px); // When top navigation has two levels
+        }
+
+        > ul {
+            @media (min-width: $screen-sm-min) {
+                height: calc(100vh - 114px); // When top navigation has 2 levels level
+            }
+        }
+    }
+}

@@ -1,0 +1,144 @@
+
+//=== Font types
+// body, label, button {
+//     //margin: 0px;
+
+//     // font: font-style font-variant font-weight font-size/line-height font-family
+//     //font:       normal     normal      $normal          $font-md;
+// }
+
+body {
+    color: var(--body-font-color);
+    font-family: $font-family-base; 
+    text-align: left;
+    line-height: $line-height-base;
+}
+
+p {
+    margin: 0 0 20px; 
+}
+
+a {
+    cursor: pointer;  
+ 
+    color: var(--anchor-color);   
+    text-decoration: underline;
+
+    &:hover {
+        color: var(--anchor-hover-color);
+        text-decoration: none;
+    }
+
+    &:focus {
+        outline: 1px solid var(--anchor-focus-outline); 
+        outline-offset: -1px; 
+    }
+}
+
+b, strong { font-weight: $bold; }
+
+h1, .h1 {
+    margin: 0 0 20px;
+
+    font: $font-xl;
+}
+
+h2, .h2 {
+    margin: 0 0 15px;
+
+    font: $font-lg;
+}
+
+h3, .h3 {
+    margin: 0 0 15px;
+
+    font: $font-md;
+}
+
+h4, .h4 {
+    margin: 0 0 5px;
+
+    font: $font-sm;
+}
+
+h5, .h5 {
+    margin: 0 0 5px;
+
+    font: $font-xs;
+}
+
+h6, .h6 {
+    margin: 0 0 5px;
+
+    font: $bold $font-xs;
+}
+
+
+mark,
+.mark {
+    background-color: var(--highlighted-text-bg-color);
+    color: var(--highlighted-text-color);
+}
+
+code {
+    padding: 1px 4px;
+    font-size: 100%;
+} 
+	
+.lead {
+    font-weight: 200;   
+    font-size: 18px;
+}
+
+ul, ol {
+    margin: 0 0 18px;
+    padding-left: 30px;
+
+    ol, ul {
+        margin-top: 6px;
+        margin-bottom: 6px;
+    }
+}
+
+ul li,
+ol li { font: $font-sm; }
+
+// ol { padding-left: 15px; }
+
+// @media screen and (-webkit-min-device-pixel-ratio:0) {
+// 	/* Safari and Chrome */
+// 	ol { padding-left: 20px; }
+// }
+
+dl {
+    margin: 0 0 18px;
+}
+
+dt, dd {
+    margin-left: 0;
+}
+
+dt {
+    font-weight: $bold;
+}
+
+// text direction
+.right-direction { direction: rtl; }
+.left-direction { direction: ltr; }
+
+
+hr {
+    clear: both;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+    border: 0px;
+    border-bottom: 1px solid var(--divider-color);
+
+    &.hr-default { border-color: var(--divider-default-color); }
+    &.hr-primary { border-color: var(--divider-primary-color); }
+    &.hr-disabled { border-color: var(--divider-disabled-color); }
+    &.hr-error { border-color: var(--divider-error-color); }
+
+}

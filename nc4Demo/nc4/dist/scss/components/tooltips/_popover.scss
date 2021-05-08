@@ -1,0 +1,91 @@
+
+//Popover general style
+.popover {
+    display: none;
+    position: absolute;
+    width: 60vw;
+    max-width: 480px;
+    padding: 60px;
+    top: 0;
+    left: 0;
+
+    border-radius: $border-radius-10;
+    border: {
+        width: 1px;
+        style: solid;
+        color: var(--module-container-bg-color);
+    }
+
+    background-color: var(--module-container-bg-color);
+    box-shadow: var(--popover-shadow);
+
+    z-index: $zindex-popover;
+
+    @media (max-width: $screen-xs-max) {
+        padding: 30px;
+    }
+
+    &::before {
+        display: block;
+        position: absolute;
+        content: '';
+        width: 12px;
+        height: 26px;
+        top: calc(#{'50% - 13px'});
+        left: -10px;
+
+        mask: url(arrowTip(var(--module-container-bg-color)));
+        -webkit-mask: url(arrowTip(var(--module-container-bg-color)));
+        mask-position: 0 0;
+        -webkit-mask-position: 0 0;
+        mask-repeat: no-repeat;
+        -webkit-mask-repeat: no-repeat;
+        background-color: var(--module-container-bg-color);
+    }
+
+    &.in {
+        display: block;
+    }
+
+    &.top {
+        &::before {
+            top: unset;
+            bottom: -17px;
+            left: calc(#{'50% - 13px'});
+
+            transform: rotate(-90deg);
+        }
+    }
+
+    //&.right {}
+
+    &.bottom {
+        &::before {
+            top: -17px;
+            left: calc(#{'50% - 13px'});
+
+            transform: rotate(90deg);
+        }
+    }
+
+    &.left {
+        &::before {
+            right: -10px;
+            left: unset;
+
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.popover-title {
+    font-weight: $bold;
+}
+
+.popover-content {
+    p {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

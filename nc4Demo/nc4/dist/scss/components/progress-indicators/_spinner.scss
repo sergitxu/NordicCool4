@@ -1,0 +1,31 @@
+
+// Spinners
+.spinner {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    text-indent: -9999px;
+    background-size: 100%;
+
+    &-sm {
+        width: 24px;
+        height: 24px;
+    }
+
+    &-xs {
+        width: 16px;
+        height: 16px;
+    }
+
+    &.spinner-default-blue { background-image: var(--spinner-default-blue); }
+    &.spinner-default-green { background-image: var(--spinner-default-green); }
+    &.spinner-default-grey { background-image: var(--spinner-default-grey); }
+
+    &.spinner-primary-blue { background-image: var(--spinner-primary-blue); }
+    &.spinner-primary-green { background-image: var(--spinner-primary-green); }
+    &.spinner-primary-grey { background-image: var(--spinner-primary-grey); }
+
+    &.spinner-secondary-blue { background-image: var(--spinner-secondary-blue); }
+    &.spinner-secondary-green { background-image: var(--spinner-secondary-green);  }
+    &.spinner-secondary-grey { background-image: var(--spinner-secondary-grey);  }
+}

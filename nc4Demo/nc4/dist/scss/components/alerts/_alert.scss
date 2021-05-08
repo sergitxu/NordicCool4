@@ -1,0 +1,98 @@
+
+//# Alert
+.alert {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 30px 50px 30px 70px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    position: relative;
+
+    border-color: var(--alert-info-border);
+    background: var(--alert-info-bg);
+    color: var(--alert-info-text);
+    box-shadow: var(--alert-info-shadow);
+
+    &:before {
+        content:'';
+        width: 24px;
+        height: 24px;
+        display: block;
+        position: absolute;
+        top: calc(50% - 12px);
+        left: 30px;
+        mask: url('#{$icons-path}/informative-filled-icons/24_informative_icons.svg');
+        -webkit-mask: url('#{$icons-path}/informative-filled-icons/24_informative_icons.svg');
+        mask-position: -87px 0;
+        -webkit-mask-position: -87px 0;
+        mask-repeat: no-repeat;
+        -webkit-mask-repeat: no-repeat;
+        background-color: var(--icon-informative-info-bg);
+        }
+
+    .vismaicon-filled { display: none; }
+
+    .btn, 
+    > p:last-child { margin-bottom: 0; }
+
+    a {
+        color: var(--anchor-color);
+    }
+
+    &.alert-success {  
+        border-color: var(--alert-success-border);
+        background: var(--alert-success-bg);
+        color: var(--alert-success-text);
+        box-shadow: var(--alert-success-shadow);
+
+        &:before { 
+            mask-position: 0 0; 
+            -webkit-mask-position: 0 0; 
+            background-color: var(--icon-informative-success-bg);
+        }
+    }
+    
+    &.alert-warning { 
+        border-color: var(--alert-warning-border);
+        background: var(--alert-warning-bg);
+        color: var(--alert-warning-text);
+        box-shadow: var(--alert-warning-shadow);
+
+        &:before { 
+            mask-position: -58px 0px; 
+            -webkit-mask-position: -58px 0px; 
+            background-color: var(--icon-informative-warning-bg);
+        }
+    }
+    
+    &.alert-error,
+    &.alert-danger { 
+        border-color: var(--alert-danger-border);
+        background: var(--alert-danger-bg);
+        color: var(--alert-danger-text); 
+        box-shadow: var(--alert-danger-shadow);
+
+        &:before { 
+            mask-position: -29px 0px; 
+            -webkit-mask-position: -29px 0px; 
+            background-color: var(--icon-informative-error-bg);
+        }
+    }
+
+
+    // Small
+    &.alert-sm {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        }
+
+
+    //Close button 
+    .close {
+        position: absolute;
+        top: calc(50% - 6px);
+        right: 27px;
+        }
+    }
+

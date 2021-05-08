@@ -1,0 +1,313 @@
+
+// Imports
+@import '../../utilities/carets';
+
+
+//=== Screen Reader only - element visible but only for the accessibility tools.
+.sr-only {
+    overflow: hidden !important; 
+    position: absolute !important; 
+
+    width: 1px !important; 
+    height: 1px !important; 
+    margin: -1px !important; 
+    padding: 0 !important;
+
+    border: 0 !important; 
+    clip: rect(0,0,0,0) !important; 
+}
+
+
+//=== Width and height
+.w-100 { width: 100% !important; }
+.h-100 { height: 100% !important; }
+.mw-100 { max-width: 100% !important; }
+.mh-100 { max-height: 100% !important; }
+
+
+
+//=== Close button 
+.close {
+    border: 0;
+    mask: url($close-icon) no-repeat;
+    -webkit-mask: url($close-icon) no-repeat;
+    background-color: var(--caret-default-bg);
+    width: 12px;
+    height: 12px;
+    padding: 0px;
+    display: inline-block;
+    cursor: pointer;
+
+    &.close-lg {
+        width: 16px;
+        height: 16px;
+        mask: url($close-icon-lg) no-repeat;
+        -webkit-mask: url($close-icon-lg) no-repeat;
+        }
+
+    &:focus { outline: 1px solid var(--anchor-focus-outline); }
+
+    > span { display: none; }
+    }
+
+
+
+//=== Text
+//==== Alignment
+.text-nowrap { white-space: nowrap !important; }
+
+.text-truncate { 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    }
+
+//==== Responsive alignment
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .text#{$infix}-left   { text-align: left !important; }
+    .text#{$infix}-right  { text-align: right !important; }
+    .text#{$infix}-center { text-align: center !important; }
+  }
+}
+
+//==== Transformation
+.text-lowercase { text-transform: lowercase !important; }
+.text-uppercase { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+//==== Weigh
+.font-weight-light  { font-weight: $thin !important; }
+.font-weight-normal { font-weight: $normal !important; }
+.font-weight-bold   { font-weight: $bold !important; }
+
+//==== Contextual colors
+.text-default { color: var(--text-default); }
+
+.text-primary,
+.text-blue { color: var(--text-primary); }
+
+.text-disabled,
+.text-grey { color: var(--text-disabled); }
+
+.text-error,
+.text-red { color: var(--text-error); }
+
+.text-orange,
+.text-warning { color: var(--text-warning); }
+
+
+
+//=== Positions
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  
+      .float#{$infix}-left  { float: left; }
+      .float#{$infix}-right { float: right; }
+      .float#{$infix}-none  { float: none; }
+    }
+  }
+
+.float-left  { float: left; }
+.float-right { float: right; }
+.float-none  { float: none; }
+
+
+
+
+//=== Border
+.border         { border: 1px solid var(--border-color) !important; }
+.border-top     { border-top: 1px solid var(--border-color) !important; }
+.border-right   { border-right: 1px solid var(--border-color) !important; }
+.border-bottom  { border-bottom: 1px solid var(--border-color) !important; }
+.border-left    { border-left: 1px solid var(--border-color) !important; }
+
+.border-0        { border: 0 !important; }
+.border-top-0    { border-top: 0 !important; }
+.border-right-0  { border-right: 0 !important; }
+.border-bottom-0 { border-bottom: 0 !important; }
+.border-left-0   { border-left: 0 !important; }
+
+.border-white { border-color: $white !important; }
+
+
+//==== Border-radius
+.rounded { border-radius: $border-radius !important; }
+.rounded-10 { border-radius: $border-radius-10 !important; }
+.rounded-20 { border-radius: $border-radius-20 !important; }
+.rounded-0 { border-radius: 0 !important; }
+.rounded-circle { border-radius: 50% !important; }
+
+.rounded-top {
+    border-top-left-radius: $border-radius !important;
+    border-top-right-radius: $border-radius !important;
+    }
+
+.rounded-right {
+    border-top-right-radius: $border-radius !important;
+    border-bottom-right-radius: $border-radius !important;
+    }
+
+.rounded-bottom {
+    border-bottom-right-radius: $border-radius !important;
+    border-bottom-left-radius: $border-radius !important; 
+    }
+
+.rounded-left {
+    border-top-left-radius: $border-radius !important;
+    border-bottom-left-radius: $border-radius !important;
+    }
+
+
+
+
+//=== Background colors
+.bg-white { background-color: $white !important; }
+    
+.bg-transparent { background-color: transparent !important; }
+
+
+
+//=== Visibility utilities
+.visible { visibility: visible; }
+
+.invisible { visibility: hidden; }
+
+
+
+
+//=== Visibility utilities
+.show-light,
+.show-on-light {
+  display: block;
+
+  .dark-theme & { display: none; }
+  .light-theme & { display: block; }
+
+  @media (prefers-color-scheme: dark) {
+      display: none;
+
+      .light-theme & {
+          display: block;
+      }
+  }
+}
+
+.show-dark,
+.show-on-dark {
+  display: none;
+  
+  .dark-theme & { display: block; }
+  .light-theme & { display: none; }
+
+  @media (prefers-color-scheme: dark) {
+      display: block;
+
+      .light-theme & {
+          display: none;
+      }
+  }
+}
+
+
+
+//=== Display
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  
+      .d#{$infix}-none         { display: none !important; }
+      .d#{$infix}-inline       { display: inline !important; }
+      .d#{$infix}-inline-block { display: inline-block !important; }
+      .d#{$infix}-block        { display: block !important; }
+      .d#{$infix}-flex         { display: flex !important; }
+      .d#{$infix}-inline-flex  { display: inline-flex !important; }
+    }
+  }
+  
+// "Display" in print
+@media print {
+    .d-print-none         { display: none !important; }
+    .d-print-inline       { display: inline !important; }
+    .d-print-inline-block { display: inline-block !important; }
+    .d-print-block        { display: block !important; }
+    .d-print-flex         { display: flex !important; }
+    .d-print-inline-flex  { display: inline-flex !important; }
+}
+   
+
+
+//=== Hide/Show
+.hide { display: none;} 
+.show { display: block;} 
+
+
+
+
+//=== Caret 
+.caret {
+  display: inline-block;
+  @include caret-medium-default();
+
+  &.caret-large-white,
+  &.caret-large-secondary { @include caret-large-secondary();  }
+
+  &.caret-large-black,
+  &.caret-large-default { @include caret-large-default();  } 
+
+  &.caret-large-blue,	
+  &.caret-large-primary { @include caret-large-primary(); }	
+
+  &.caret-large-grey,
+  &.caret-large-disabled { @include caret-large-disabled(); } 
+    
+  &.caret-medium-white,
+  &.caret-medium-secondary { @include caret-medium-secondary(); }		
+
+  &.caret-medium-black,	
+  &.caret-medium-default { @include caret-medium-default(); }	
+
+  &.caret-medium-blue,		
+  &.caret-medium-primary { @include caret-medium-primary(); }	
+
+  &.caret-medium-grey,
+  &.caret-medium-disabled { @include caret-medium-disabled(); }
+    
+  &.caret-small-white,	
+  &.caret-small-secondary { @include caret-small-secondary() }	
+
+  &.caret-small-black,	
+  &.caret-small-default { @include caret-small-default(); }	
+
+  &.caret-small-blue,	
+  &.caret-small-primary { @include caret-small-primary(); }		
+
+  &.caret-small-grey,
+  &.caret-small-disabled { @include caret-small-disabled(); }		
+}
+
+.open {
+  > .caret { transform: rotate(180deg); }
+}
+
+
+// Center content blocks
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+	
+
+
+//=== Clearfix 
+.clear,
+.clearfix {
+  display: block;
+  clear: both;
+  // width: 100%;
+}

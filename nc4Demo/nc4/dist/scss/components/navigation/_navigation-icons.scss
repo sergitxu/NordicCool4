@@ -1,0 +1,92 @@
+// Imports
+// @import '../settings/variables';
+
+// Top navigation - items from the top nav with icons intead of text (right side of the nav)
+
+.vismaicon.vismaicon-menu {
+    &:before {
+        background-color: var(--navigation-default-icon-bg); 
+    }
+
+    &.vismaicon-message::before,
+    &.vismaicon-chat::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_email.svg");
+        mask: url("#{$icons-path}/worksurface/24_email.svg");
+    }
+    &.vismaicon-settings::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_settings.svg");
+        mask: url("#{$icons-path}/worksurface/24_settings.svg");
+    }
+    &.vismaicon-user::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_user.svg");
+        mask: url("#{$icons-path}/worksurface/24_user.svg");
+    }
+    &.vismaicon-shopping-cart::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_shopping_cart.svg");
+        mask: url("#{$icons-path}/worksurface/24_shopping_cart.svg");
+    }
+    &.vismaicon-home::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_home.svg");
+        mask: url("#{$icons-path}/worksurface/24_home.svg");
+    }
+    &.vismaicon-library::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_library.svg");
+        mask: url("#{$icons-path}/worksurface/24_library.svg");
+    }
+    &.vismaicon-calendar::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_calendar.svg");
+        mask: url("#{$icons-path}/worksurface/24_calendar.svg");
+    }
+    &.vismaicon-search::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_search.svg");
+        mask: url("#{$icons-path}/worksurface/24_search.svg");
+    }
+    &.vismaicon-tools::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_tools.svg");
+        mask: url("#{$icons-path}/worksurface/24_tools.svg");
+    }
+    &.vismaicon-user-settings::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_user_settings.svg");
+        mask: url("#{$icons-path}/worksurface/24_user_settings.svg");
+    }
+    &.vismaicon-reminder::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_reminder.svg");
+        mask: url("#{$icons-path}/worksurface/24_reminder.svg");
+    }
+    &.vismaicon-phone::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_phone.svg");
+        mask: url("#{$icons-path}/worksurface/24_phone.svg");
+    }
+    &.vismaicon-logout::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_logout.svg");
+        mask: url("#{$icons-path}/worksurface/24_logout.svg");
+    }
+    &.vismaicon-location::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_location.svg");
+        mask: url("#{$icons-path}/worksurface/24_location.svg");
+    }
+    &.vismaicon-info::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_info.svg");
+        mask: url("#{$icons-path}/worksurface/24_info.svg");
+    }
+    &.vismaicon-help::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_help.svg");
+        mask: url("#{$icons-path}/worksurface/24_help.svg");
+    }
+    &.vismaicon-favourites::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_favourite.svg");
+        mask: url("#{$icons-path}/worksurface/24_favourite.svg");
+    }
+    &.vismaicon-docs::before { 
+    -webkit-mask: url("#{$icons-path}/worksurface/24_document_production.svg");
+        mask: url("#{$icons-path}/worksurface/24_document_production.svg");
+    }
+}
+
+.navbar-secondary {
+    .vismaicon {
+        &::before { background-color: var(--navigation-secondary-icon-bg) }
+
+        // &.vismaicon-alert::before { background-position: 0px 0; }
+    }
+}

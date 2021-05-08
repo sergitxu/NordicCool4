@@ -1,0 +1,44 @@
+
+.stepper.stepper-sm {
+    @media (min-width: $screen-md-min + 1) { 
+        ul {
+            > li {
+                > * { 
+                    min-height: 45px; 
+
+                    span { 
+                        right: -60px;
+                        width: 140px;
+                    }
+                }
+
+                &.active {
+                    > * {
+                        span:not(.step) { 
+                            right: -60px; 
+                            top: auto;
+                        }
+                    }
+        
+                    &:first-child {
+                        > * {
+                            span:not(.step) { right: -60px; } 
+                        }
+                    }
+                }
+
+                /* 6 items in the stepper  */
+                &:first-child:nth-last-child(7),
+                &:first-child:nth-last-child(7) ~ li {
+                    > * span {
+                        @media (min-width: $screen-lg-min + 1) {  
+                            right: -57px; 
+                            width: 120px;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+} 

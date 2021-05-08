@@ -1,0 +1,60 @@
+//=== Default style (white navigation)
+
+.vertical-nav {
+    background-color: var(--module-container-bg-color);
+    box-shadow: var(--vertical-nav-default-shadow);
+	
+    ul {
+        li {
+            a {
+                color: var(--body-font-color);
+
+                &:hover { background-color: var(--module-container-hover-bg-color); }
+            }
+
+            &.active {
+                > a:only-child {
+                    background-color: var(--vertical-nav-default-item-active-bg);
+                    box-shadow: 5px 0 0 var(--module-container-active-before-color) inset;
+                }
+            }
+
+            &.active,
+            &.active.active-child {
+                > a { 
+                    background-color: var(--module-container-active-bg-color); 
+                    
+                    &:hover { background-color: var(--module-container-hover-bg-color); }
+                }
+            }
+
+            &.disabled {
+                > a { color: var(--text-disabled); }
+            }
+
+            &.show-nav {
+                > a {
+                    background-color: var(--vertical-nav-default-collapse-btn-bg);
+
+                    &:after { background-color: $neutral-05; }
+
+                    &:hover { background-color: var(--vertical-nav-default-collapse-btn-hover-bg); }
+                }
+
+                &.show-nav-primary {
+                    > a {
+                        background-color: var(--vertical-nav-default-collapse-btn-bg);
+                        box-shadow: var(--vertical-nav-default-collapse-btn-shadow);
+                    }
+                }
+            }
+        }
+    } 
+
+    ul {
+        > li {
+            > ul { background: var(--module-container-active-bg-color); }
+        }
+    }
+}
+

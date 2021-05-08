@@ -1,0 +1,11 @@
+
+// CSS Custom Properties / CSS Variables
+//
+// Dark Mode Variables
+//
+
+
+/* Setup a few global scope properties */
+:root {
+  @include dark-mode();
+  }

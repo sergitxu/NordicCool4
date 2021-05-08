@@ -1,0 +1,244 @@
+// Stepper - base styling
+@media (max-width: $screen-md-min) { 
+    .stepper:not(.stepper-vertical) {
+            background: var(--stepper-wrapper-bg);
+            box-shadow: $shadow-20 var(--module-container-shadow);
+            position: absolute;
+            width: 100%;
+            max-width: 100%;
+            top: 65px;
+            left: 0;
+            height: 66px;
+
+            + .container { margin-top: 65px; }
+    
+        ul {
+                background: var(--stepper-wrapper-bg);
+                box-shadow: $shadow-20 var(--module-container-shadow);
+                padding: 11px 21px 10px 25px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: auto;
+                display: inline-block;
+                height: 33px;
+                border-radius: 25px;
+                margin: 0 auto;
+                top: 48px;
+
+                &:before {
+                    content: "";
+                    width: 110%;
+                    height: 17px;
+                    background-color: var(--stepper-wrapper-bg);
+                    position: absolute;
+                    top: 1px;
+                    display: block;
+                    left: -5%;
+                    z-index: 1;
+                }
+        
+
+            > li {
+                right: auto;
+                left: auto;
+                width: auto;
+                margin-right: 7px; 
+        
+                > * {
+                    margin: 0 0 10px 0;
+                    width: auto;
+                    min-height: auto;
+                
+                    &:after { display: none; }
+
+                    &:before {
+                        width: 5px;
+                        height: 5px;
+                        right: auto;
+                        bottom: -7px;
+                    }
+
+                    span {
+                        width: 400px;
+                        max-width: 400px;
+                        right: auto !important;
+                        font-weight: $normal;
+                        display: none;
+                        transform: translateX(-50%);
+                    }
+
+                    span:not(.step) {
+                        font-size: $font-size-md;
+                        color: var(--stepper-wrapper-text-color);
+                        display: none;
+                    }
+
+                    span.step { top: -52px; }
+                }
+
+                &:first-child {
+                    position: relative;   
+                    right: auto;    
+                    left: auto;    
+                    width: auto;
+                
+                    > * { width: auto; }
+                }
+
+                &.active {
+                    width: auto;
+                    margin-right: 9px;
+
+                    > * {
+                        &:before {
+                            width: 7px;
+                            height: 7px;
+                            border: 0;
+                            background: var(--stepper-active-border-color);
+                            bottom: -8px;
+                        }
+
+                        span:not(.step) { 
+                            top: -39px;
+                            display: block;
+                        }
+
+                        span.step { display: block; }
+                    }
+                }
+
+                &.passed {
+                    > * {
+                        &:before { background-image: none; }
+                    }
+                }
+
+        
+                /* 2 items in the stepper  */
+                &:first-child:nth-last-child(2),
+                &:first-child:nth-last-child(2) ~ li:nth-child(1) {
+                    * span { left: 9px }
+                }
+
+                &:first-child:nth-last-child(2) ~ li:nth-child(2) {
+                    * span { left: -2px }
+                }
+
+
+                /* 3 items in the stepper  */
+                &:first-child:nth-last-child(3),
+                &:first-child:nth-last-child(3) ~ li:nth-child(1) {
+                    * span { left: 14px }
+                }
+
+                &:first-child:nth-last-child(3) ~ li:nth-child(2) {
+                    * span { left: 3px }
+                }
+
+                &:first-child:nth-last-child(3) ~ li:nth-child(3) {
+                    * span { left: -7px }
+                }
+
+
+                /* 4 items in the stepper  */
+                &:first-child:nth-last-child(4),
+                &:first-child:nth-last-child(4) ~ li:nth-child(1) {
+                    * span { left: 20px }
+                }
+
+                &:first-child:nth-last-child(4) ~ li:nth-child(2) {
+                    * span { left: 9px }
+                }
+
+                &:first-child:nth-last-child(4) ~ li:nth-child(3) {
+                    * span { left: -1px }
+                }
+
+                &:first-child:nth-last-child(4) ~ li:nth-child(4) {
+                    * span { left: -12px }
+                }
+
+                /* 5 items in the stepper  */
+                &:first-child:nth-last-child(5),
+                &:first-child:nth-last-child(5) ~ li:nth-child(1) {
+                    * span { left: 25px }
+                }
+
+                &:first-child:nth-last-child(5) ~ li:nth-child(2) {
+                    * span { left: 14px }
+                }
+
+                &:first-child:nth-last-child(5) ~ li:nth-child(3) {
+                    * span { left: 4px }
+                }
+
+                &:first-child:nth-last-child(5) ~ li:nth-child(4) {
+                    * span { left: -7px }
+                }
+
+                &:first-child:nth-last-child(5) ~ li:nth-child(5) {
+                    * span { left: -18px }
+                }
+
+
+                /* 6 items in the stepper  */
+                &:first-child:nth-last-child(6),
+                &:first-child:nth-last-child(6) ~ li:nth-child(1) {
+                    * span { left: 28px }
+                }
+
+                &:first-child:nth-last-child(6) ~ li:nth-child(2) {
+                    * span { left: 17px }
+                }
+
+                &:first-child:nth-last-child(6) ~ li:nth-child(3) {
+                    * span { left: 7px }
+                }
+
+                &:first-child:nth-last-child(6) ~ li:nth-child(4) {
+                    * span { left: -4px }
+                }
+
+                &:first-child:nth-last-child(6) ~ li:nth-child(5) {
+                    * span { left: -15px }
+                }
+
+                &:first-child:nth-last-child(6) ~ li:nth-child(6) {
+                    * span { left: -25px }
+                }
+
+
+                /* 7 items in the stepper  */
+                &:first-child:nth-last-child(7),
+                &:first-child:nth-last-child(7) ~ li:nth-child(1) {
+                    * span { left: 31px }
+                }
+
+                &:first-child:nth-last-child(7) ~ li:nth-child(2) {
+                    * span { left: 20px }
+                }
+
+                &:first-child:nth-last-child(7) ~ li:nth-child(3) {
+                    * span { left: 10px }
+                }
+
+                &:first-child:nth-last-child(7) ~ li:nth-child(4) {
+                    * span { left: -1px }
+                }
+
+                &:first-child:nth-last-child(7) ~ li:nth-child(5) {
+                    * span { left: -12px }
+                }
+
+                &:first-child:nth-last-child(7) ~ li:nth-child(6) {
+                    * span { left: -22px } 
+                }
+
+                &:first-child:nth-last-child(7) ~ li:nth-child(7) {
+                    * span { left: -33px }
+                }
+
+            }
+        }
+    } 
+} 

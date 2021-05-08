@@ -1,0 +1,77 @@
+
+// Open Sans
+// 400 - normal
+@font-face {
+    font-family: "OpenSansFallback";
+    src: url('#{$font-path}/OpenSans-Regular.woff2') format('woff2'),
+        url('#{$font-path}/OpenSans-Regular.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    }
+
+// 600 - semibold
+@font-face {
+    font-family: "OpenSansFallback";
+    font-style: normal;
+    font-weight: 600;
+    src: url('#{$font-path}/OpenSans-SemiBold.woff2') format('woff2'),
+        url('#{$font-path}/OpenSans-SemiBold.woff') format('woff');
+}
+
+// 800 - bold
+@font-face {
+    font-family: "OpenSansFallback";
+    font-style: normal;
+    font-weight: 700;
+    src: url('#{$font-path}/OpenSans-Bold.woff2') format('woff2'),
+        url('#{$font-path}/OpenSans-Bold.woff') format('woff');
+}
+
+// 900 - extrabold
+@font-face {
+    font-family: "OpenSansFallback";
+    font-style: normal; 
+    font-weight: 800;
+    src: url('#{$font-path}/OpenSans-ExtraBold.woff2') format('woff2'),
+        url('#{$font-path}/OpenSans-ExtraBold.woff') format('woff');
+}
+
+
+
+// Ubuntu
+// 200 - thin
+@font-face {
+    font-family: "UbuntuFallback-thin";
+    src: url('#{$font-path}/Ubuntu-Thin.woff2') format('woff2'),
+        url('#{$font-path}/Ubuntu-Thin.woff') format('woff');
+    font-style: normal;
+    font-weight: 200;
+    }
+
+// 200 - light
+@font-face {
+    font-family: "UbuntuFallback";
+    src: url('#{$font-path}/Ubuntu-Light.woff2') format('woff2'),
+        url('#{$font-path}/Ubuntu-Light.woff') format('woff');
+    font-style: normal;
+    font-weight: 300;
+    }
+
+// 400 - normal
+@font-face {
+    font-family: "UbuntuFallback";
+    src: url('#{$font-path}/Ubuntu-Regular.woff2') format('woff2'),
+        url('#{$font-path}/Ubuntu-Regular.woff') format('woff');
+    font-style: normal;
+    font-weight: 400;
+    }
+
+// 600 - semibold
+@font-face {
+    font-family: "UbuntuFallback";
+    font-style: normal;
+    font-weight: 600;
+    src: url('#{$font-path}/Ubuntu-Medium.woff2') format('woff2'),
+        url('#{$font-path}/Ubuntu-Medium.woff') format('woff');
+}
+

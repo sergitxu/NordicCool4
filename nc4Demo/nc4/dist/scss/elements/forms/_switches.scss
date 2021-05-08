@@ -1,0 +1,379 @@
+
+// Toggle/Switch button
+.switch {
+    display: inline-block;
+    position: relative;
+    content: "";
+    min-height: 20px;
+    margin: 0 12px 6px 0;
+    padding: 1px 0;
+
+    color: var(--switches-text-color);
+    font-size: $font-size-sm;
+    line-height: 1.8rem;
+
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    // hide the input, keep for functionality
+    input {
+        &[type="checkbox"],
+        &[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            cursor: default;
+            width: 0;
+            height: 0;
+        }
+
+        &:focus {
+            ~ .togglemark {
+                &::before {
+                    box-shadow: 0 0 0 1px var(--switches-focus-border-color), inset 0 0 0 1px var(--switches-focus-border-color);
+                }
+            }
+        }
+
+        &:checked, &.checked {
+            ~ .togglemark {
+                &::before {
+                    color: var(--switches-checked-text-color);
+                    text-align: left;
+
+                    background-color: var(--switches-checked-bg);
+                    box-shadow: none;
+                }
+
+                &::after {
+                    left: 15px
+                }
+
+                &:hover {
+                    &::before {
+                        background-color: var(--switches-checked-hover-bg);
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            &:focus {
+                ~ .togglemark {
+                    &::before {
+                        box-shadow: 0 0 0 1px var(--switches-focus-border-color), inset 0 0 0 1px var(--switches-focus-border-color), inset 0 0 0 2px var(--switches-focus-inner-border-color);
+                    }
+                }
+            }
+        }
+    }
+
+    // define styles for the visual que of the switch/toggle button
+    .togglemark {
+        position: relative;
+        cursor: pointer;
+        padding-left: 40px;
+
+        &::before, &::after {
+            position: absolute;
+            display: block;
+            content: '';
+        }
+
+        &::before {
+            width: 28px;
+            height: 16px;
+            top: 2px;
+            left: 1px;
+
+            color: var(--switches-text-color);
+            font: {
+                size: $font-xs;
+                weight: $bold;
+            }
+            text-align: right;
+
+            border-radius: 16px;
+            background-color: var(--switches-bg);
+            box-shadow: inset 0 0 0 1px var(--switches-border-color);
+
+            transition: background-color 0.12s ease-in-out;
+        }
+
+        &::after {
+            width: 12px;
+            height: 12px;
+            top: 4px;
+            left: 3px;
+
+            border-radius: 12px;
+            background-color: var(--switches-togglemark-bg);
+            box-shadow: $shadow-20 var(--switches-togglemark-shadow-color);
+
+            transition: left 0.09s ease-in-out;
+        }
+
+        &:hover {
+            box-shadow: none;
+
+            &::before {
+                background-color: var(--switches-hover-bg);
+            }
+        }
+    }
+
+    // define the styles for the large/biger version of the switch/toggle button
+    &.switch-lg {
+        line-height: 24px;
+
+        .togglemark {
+            padding-left: 60px;
+
+            &::before {
+                width: 44px;
+                height: 24px;
+                top: -3px;
+
+                border-radius: 24px;
+            }
+
+            &::after {
+                width: 18px;
+                height: 18px;
+                top: 0;
+                left: 4px;
+
+                border-radius: 18px;
+            }
+        }
+
+        input {
+            &:checked, &.checked {
+                ~ .togglemark {
+                    &::after {
+                        left: 24px;
+                    }
+                }
+            }
+        }
+    }
+
+    // define the styles for the version with "ON"/"OFF" text
+    &.switch-label {
+        line-height: 24px;
+
+        .togglemark {
+            padding-left: 75px;
+
+            &::before {
+                box-sizing: border-box;
+                content: 'OFF';
+                width: 62px;
+                height: 24px;
+                top: -3px;
+                padding: 0 12px;
+
+                line-height: 24px;
+                text-indent: 0;
+
+                border-radius: 24px;
+            }
+
+            &::after {
+                width: 18px;
+                height: 18px;
+                top: 0;
+                left: 4px;
+
+                border-radius: 18px;
+            }
+        }
+
+        input {
+            &:checked, &.checked {
+                ~ .togglemark {
+                    &::before {
+                        content: 'ON';
+                    }
+
+                    &::after {
+                        left: 42px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Disabled style of the switch/toggle button
+.disabled .switch input, :disabled .switch input,
+.switch.disabled input, .switch:disabled input,
+.switch input.disabled,
+.switch input:disabled {
+    &[type="checkbox"],
+    &[type="radio"] {
+        ~ .togglemark {
+            cursor: default;
+            pointer-events: none;
+
+            &::before {
+                color: var(--switches-disabled-text-color);
+
+                background-color: var(--switches-disabled-bg);
+                box-shadow: none;
+            }
+
+            &::after {
+                background-color: var(--switches-disabled-togglemark-bg);
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+
+// Switcher from light to dark mode
+.light-dark-toggle {
+    &.switch { 
+        &.switch-label {
+            margin: 0;
+            padding: 15px 5px 15px 25px;
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+
+            b { 
+                font-size: 14px; 
+                // min-width: 110px;
+
+                // &:first-child { text-align: right; }
+                // &:last-child { text-align: left; }
+            }
+
+            .togglemark {
+                margin: 0 15px;
+                overflow: hidden;
+                width: 48px;
+                min-width: 48px;
+                height: 24px;
+                padding: 0;
+                display: inline-flex;
+                border-radius: 12px;
+                
+                &, &:hover {
+                    background-image: linear-gradient(360deg, #52B9FF 0%, #1C98EB 100%);
+                    transition: background-image 0.3s ease-in-out;
+
+                    &::before,
+                    &::after {
+                        content: '';  
+                        width: 16px !important;
+                        height: 16px !important;
+                        top: 4px;
+                    }
+
+                    &::before {
+                        width: 50px;
+                        padding: 0 6px 0 6px;
+                        background: radial-gradient(62.5% 62.5% at 37.5% 37.5%, #FED177 0%, #FEC044 100%);
+                        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+                        left: 4px;
+                        transition: left 0.3s ease-in-out;
+                    }
+
+                    &::after {
+                        background: linear-gradient(to bottom, #1B3D54 0%, #224157 100%);
+                        box-shadow: none;
+                        top: 2px;
+                        left: 2px;
+                        transition: left 0.3s ease-in-out, opacity 0.02s ease-in-out;
+                        opacity: 0;
+                    }
+
+                    .details {
+                        &:before, 
+                        &:after { 
+                            content:''; 
+                            display: block;
+                            position: absolute;
+                            z-index: 1;
+                            top: 3px;
+                        }
+
+                        &:before { //Clouds
+                            background-image: url("data:image/svg+xml,%3Csvg width='48' height='24' viewBox='0 0 48 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0' mask-type='alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='48' height='24'%3E%3Crect width='48' height='24' rx='12' fill='url(%23paint0_linear)'/%3E%3C/mask%3E%3Cg mask='url(%23mask0)'%3E%3Cpath opacity='0.33' fill-rule='evenodd' clip-rule='evenodd' d='M26.3654 17.0769C24.5067 17.0769 23 15.5702 23 13.7115C23 11.8529 24.5067 10.3462 26.3654 10.3462C26.3991 10.3462 26.4326 10.3467 26.4661 10.3476C26.9332 8.04271 28.9707 6.30769 31.4135 6.30769C33.3662 6.30769 35.06 7.41646 35.8996 9.03879C36.0832 9.01322 36.2708 9 36.4615 9C38.6919 9 40.5 10.8081 40.5 13.0385C40.5 15.2688 38.6919 17.0769 36.4615 17.0769C36.4599 17.0769 36.4583 17.0769 36.4567 17.0769H26.3654Z' fill='white'/%3E%3Cpath opacity='0.33' fill-rule='evenodd' clip-rule='evenodd' d='M15.5642 9C15.5637 9 15.5631 9 15.5625 9C14.6996 9 14 8.30044 14 7.4375C14 6.57455 14.6996 5.875 15.5625 5.875C15.5781 5.875 15.5937 5.87523 15.6092 5.87568C15.8261 4.80554 16.7721 4 17.9063 4C18.8129 4 19.5993 4.51479 19.9891 5.26801C20.0744 5.25614 20.1615 5.25 20.25 5.25C21.2855 5.25 22.125 6.08947 22.125 7.125C22.125 8.16053 21.2855 9 20.25 9C20.2491 9 20.2482 9 20.2473 9H15.5642Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='24' y1='24' x2='24' y2='-9.08971e-07' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2352B9FF'/%3E%3Cstop offset='1' stop-color='%231C98EB'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A"); 
+                            width: 48px;
+                            height: 24px;
+                            left: 8px;
+                            opacity: 1;
+                            transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;
+                        }
+
+                        &:after { //Stars
+                            background-image: url("data:image/svg+xml,%3Csvg width='22' height='8' viewBox='0 0 22 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='1.5' cy='2.5' rx='0.5' ry='1.5' fill='white' fill-opacity='0.25'/%3E%3Cellipse cx='1.5' cy='2.5' rx='0.5' ry='1.5' transform='rotate(90 1.5 2.5)' fill='white' fill-opacity='0.25'/%3E%3Cellipse cx='20.5' cy='6.5' rx='0.5' ry='1.5' fill='white' fill-opacity='0.25'/%3E%3Cellipse cx='20.5' cy='6.5' rx='0.5' ry='1.5' transform='rotate(90 20.5 6.5)' fill='white' fill-opacity='0.25'/%3E%3Ccircle cx='11.5' cy='0.5' r='0.5' fill='white' fill-opacity='0.25'/%3E%3C/svg%3E%0A");
+                            width: 22px;
+                            height: 8px;
+                            left: 8px;
+                            opacity: 0;
+                            transition: opacity 0.3s ease-in-out;
+                        }
+                    }
+                }
+            }
+    
+            input {
+                &:checked, &.checked {
+                    ~ .togglemark {
+                        background-image: linear-gradient(to bottom, #193C54 0%, #244358 100%);
+                        transition: background-image 0.3s ease-in-out;
+
+                        &::before,
+                        &::after { content:''; }
+
+                        &::before {
+                            left: 26px;
+                            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+                            transition: left 0.3s ease-in-out;
+                        }
+
+                        &::after {
+                            left: 22px;
+                            opacity: 1;
+                            transition: left 0.3s ease-in-out, opacity 0.02s ease-in-out;
+                        }
+
+                        .details {
+                            &:before { 
+                                left: -17px;
+                                opacity: 0.4;
+                                transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;
+                            }
+
+                            &:after { 
+                                opacity: 1;
+                                transition: opacity 0.3s ease-in-out;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    b.light {
+        @media (prefers-color-scheme: dark) { font-weight: 400; }
+        @media (prefers-color-scheme: light) { font-weight: 700; }
+        .dark-theme & { font-weight: 400; }
+        .light-theme & { font-weight: 700; }
+    }
+
+    b.dark {
+        @media (prefers-color-scheme: light) { font-weight: 400; }
+        @media (prefers-color-scheme: dark) { font-weight: 700; }
+        .light-theme & { font-weight: 400; }
+        .dark-theme & { font-weight: 700; }
+    }
+} // Switch from dark-light
+
+

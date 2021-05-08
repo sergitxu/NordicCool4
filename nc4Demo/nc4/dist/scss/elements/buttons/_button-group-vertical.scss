@@ -1,0 +1,228 @@
+
+// Vertically stacked group buttons
+.btn-group-vertical {
+    display: inline-block;
+    vertical-align: top;
+
+    //# Button base style
+    .btn {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+
+        color: var(--button-text-color);
+
+        border-color: var(--button-border-color);
+        background-color: var(--button-bg);
+        box-shadow: $shadow-20 var(--button-shadow-color);
+
+        &:not(:first-child):not(:last-child) { border-radius: 0; }
+
+        &:not(:last-child) {
+            margin-bottom: 0;
+
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &:not(:first-child) {
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+        }
+
+
+        //## Button style for 'selected state'
+        &.active {
+            border-color: var(--button-border-color);
+            background-color: var(--button-selected-bg);
+            box-shadow: none;
+
+            //### Button style for one that precede a 'selected' button
+            + .btn {
+                box-shadow: 0 -1px 0 0 var(--button-border-color), 0 -4px 4px -2px var(--button-shadow-color), $shadow-20 var(--button-shadow-color);
+
+                // Button style for a 'selected' button that precede a 'selected' button
+                &.active {
+                    &:hover { box-shadow: 0 -1px 0 0 var(--button-hover-border-color); }
+
+                    &:focus { box-shadow: 0 -1px 0 0 var(--button-focus-border-color), inset 0 0 0 1px var(--button-focus-border-color); }
+
+                    &, &:active { box-shadow: 0 -1px 0 0 var(--button-border-color); }
+                } // END '.btn-group-vertical .btn.active + .btn.active'
+            } // END '.btn-group-vertical .btn.active + .btn'
+        } // END '.btn-group-vertical .btn.active'
+
+
+        //## Button style for 'hoverd state'
+        &:hover:not(:active) {
+            border-color: var(--button-hover-border-color);
+            background-color: var(--button-hover-bg);
+            box-shadow: $shadow-20 var(--button-hover-shadow-color);
+
+            //### Button style for one that precede a 'hoverd' button
+            + .btn {
+                box-shadow: 0 -1px 0 0 var(--button-hover-border-color), $shadow-20 var(--button-shadow-color);
+
+                // Button style for a 'selected' button that precede a 'hoverd' button
+                &.active {
+                    &, &:disabled, &.disabled { box-shadow: 0 -1px 0 0 var(--button-hover-border-color), inset 0 4px 4px -2px var(--button-shadow-color); }
+                }
+
+                // Button style for a 'disabled' button that precede a 'hoverd' button
+                &:disabled, &.disabled { box-shadow: 0 -1px 0 0 var(--button-hover-border-color); }
+            } // END '.btn-group-vertical .btn:hover + .btn'
+        } // END '.btn-group-vertical .btn:hover'
+
+
+        //## Button style for 'focus state'
+        &:focus:not(:active) {
+            border-color: var(--button-focus-border-color);
+            box-shadow: inset 0 0 0 1px var(--button-focus-border-color), $shadow-20 var(--button-shadow-color);
+
+            //### Button style for one that precede a 'focused' button
+            + .btn {
+                &, &:hover { box-shadow: 0 -1px 0 0 var(--button-focus-border-color), $shadow-20 var(--button-shadow-color); }
+
+                // Button style for a 'selected' button that precede a 'focused' button
+                &.active {
+                    &:disabled, &.disabled { box-shadow: 0 -1px 0 0 var(--button-focus-border-color), inset 0 4px 4px -2px var(--button-shadow-color); }
+                }
+
+                // Button style for a 'disabled' button that precede a 'focused' button
+                &:disabled, &.disabled { box-shadow: 0 -1px 0 0 var(--button-focus-border-color); }
+            } // END '.btn-group-vertical .btn:focus + .btn'
+        } // END '.btn-group-vertical .btn:focus'
+
+
+        //## Button style for 'pressed state'
+        &:active {
+            border-color: var(--button-active-border-color);
+            background-color: var(--button-active-bg);
+            box-shadow: none;
+
+            //### Button style for one that precede a 'pressed' button
+            + .btn {
+                &, &:hover { box-shadow: 0 -1px 0 0 var(--button-border-color), 0 -6px 4px -4px var(--button-shadow-color), $shadow-20 var(--button-shadow-color); }
+
+                // Button style for a 'disabled selected' button that precede a 'pressed' button
+                &.active {
+                    &:disabled, &.disabled { box-shadow: 0 -1px 0 0 var(--button-border-color), inset 0 4px 4px -2px var(--button-shadow-color); }
+                }
+            } // END '.btn-group-vertical .btn:active + .btn'
+        } // END '.btn-group-vertical .btn:active'
+
+
+        //# Button base style for the second and up button in the group
+        + .btn {
+            border-top: 0;
+            box-shadow: 0 -2px 0 -1px var(--button-inner-border-color), $shadow-20 var(--button-shadow-color);
+
+            // selected state
+            &.active { box-shadow: 0 -1px 0 0 var(--button-border-color), inset 0 4px 4px -2px var(--button-shadow-color); }
+
+            // hover state
+            &:hover { box-shadow: 0 -1px 0 0 var(--button-hover-border-color), $shadow-20 var(--button-hover-shadow-color); }
+
+            // focus state
+            &:focus {
+                box-shadow: 0 -1px 0 0 var(--button-focus-border-color), inset 0 0 0 1px var(--button-focus-border-color), $shadow-20 var(--button-shadow-color);
+
+                // Button style for a 'pressed' button that precede a 'focused' button
+                + .btn {
+                    &.active { box-shadow: 0 -1px 0 0 var(--button-focus-border-color), inset 0 4px 4px -2px var(--button-shadow-color); }
+                }
+            } // END '.btn-group-vertical .btn + .btn:focus'
+
+            // pressed state
+            &:active {
+                box-shadow: 0 -1px 0 0 var(--button-border-color), inset 0 6px 4px -4px var(--button-shadow-color);
+
+                // Button style for a button that precede a 'pressed' button
+                + .btn {
+                    box-shadow: 0 -1px 0 0 var(--button-border-color), 0 -6px 4px -4px var(--button-shadow-color), $shadow-20 var(--button-shadow-color);
+
+                    // Button style for a 'selected', 'disabled' or 'selected disabled' button that precede a 'pressed' button
+                    &.active, &:disabled, &.disabled {
+                        &, &.active { box-shadow: 0 -1px 0 0 var(--button-border-color), 0 -6px 4px -4px var(--button-shadow-color); }
+                    }
+                } // END '.btn-group-vertical .btn + .btn:active + .btn'
+            } // END '.btn-group-vertical .btn + .btn:active'
+        } // END '.btn-group-vertical .btn + .btn'
+    } // END '.btn-group-vertical .btn'
+} // END '.btn-group-vertical'
+
+
+// The default 'Disabled state' for the button in buttons group
+:disabled .btn-group-vertical .btn,
+.disabled .btn-group-vertical .btn,
+.btn-group-vertical:disabled .btn,
+.btn-group-vertical.disabled .btn,
+.btn-group-vertical .btn:disabled,
+.btn-group-vertical .btn.disabled {
+    color: var(--button-disabled-text-color);
+
+    border-color: var(--button-disabled-border-color);
+    box-shadow: none;
+
+    //# Button base style for 'disabled state'
+    &, &.btn-primary {
+        background-color: var(--button-disabled-bg);
+
+        //## 'sellected disabled' button
+        &.active {
+            color: var(--button-disabled-text-color);
+
+            background-color: var(--button-selected-bg);
+
+            // Button style for one that precede a 'selected disabled' button
+            + .btn {
+                &.active {
+                    &:hover { box-shadow: 0 -1px 0 0 var(--button-hover-border-color); }
+
+                    &:focus { box-shadow: 0 -1px 0 0 var(--button-focus-border-color), inset 0 0 0 1px var(--button-focus-border-color); }
+
+                    &, &:active { box-shadow: 0 -1px 0 0 var(--button-border-color); }
+                }
+            }
+        }
+    }
+
+    //# Button base style for the second and up button in the 'disabled' group or pressed a 'disabled' button
+    + .btn {
+        box-shadow: 0 -1px 0 0 var(--button-border-color), $shadow-20 var(--button-shadow-color);
+
+        &.active { box-shadow: 0 -1px 0 0 var(--button-border-color), inset 0 4px 4px -2px var(--button-shadow-color); }
+
+        &:hover { box-shadow: 0 -1px 0 0 var(--button-hover-border-color), $shadow-20 var(--button-hover-shadow-color); }
+
+        &:focus { box-shadow: 0 -1px 0 0 var(--button-focus-border-color), inset 0 0 0 1px var(--button-focus-border-color), $shadow-20 var(--button-shadow-color); }
+
+        &:active { box-shadow: 0 -1px 0 0 var(--button-border-color), inset 0 6px 4px -4px var(--button-shadow-color); }
+    }
+}
+
+
+:disabled .btn-group-vertical .btn,
+.disabled .btn-group-vertical .btn,
+.btn-group-vertical:disabled .btn,
+.btn-group-vertical.disabled .btn {
+    //# Button base style for a 'selected' button in the 'disabled' group
+    &.active {
+        + .btn {
+            box-shadow: 0 -1px 0 0 var(--button-inner-border-color), 0 -6px 4px -4px var(--button-shadow-color);
+
+            &.active {
+                &, &:focus { box-shadow: 0 -2px 0 -1px var(--button-inner-border-color); }
+            }
+        }
+    }
+
+    //# Button base style for the second and up button in the 'disabled' group
+    + .btn {
+        &, &:focus { box-shadow: 0 -2px 0 -1px var(--button-inner-border-color); }
+
+        &.active {
+            &, &:focus{ box-shadow: 0 -1px 0 0 var(--button-inner-border-color), inset 0 6px 4px -4px var(--button-shadow-color); }
+        }
+    }
+}

@@ -1,0 +1,134 @@
+
+
+// Top navigation - Product dropdown area
+
+.navbar-default,
+.navbar-secondary {
+    .navbar-header {
+        .navbar-brand {
+            > .dropdown-toggle { padding: 1.1rem 3.6rem 1.1rem 2.2rem; }
+
+            .dropdown-menu {
+                top: 100%;
+                padding: 0;
+                margin-top: -1px;
+                z-index: $zindex-navbar-dropdown;
+
+                > li {
+                    overflow: visible;
+
+                    > a {
+                        border-top: 0.1rem solid var(--navigation-default-dropdown-divider-color-strong);
+                        font: $font-md;
+                        color: var(--navigation-default-dropdown-text-color);
+                        padding: 0 1.6rem 0 2.4rem;
+                        min-height: 6.6rem;
+                        display: inline-flex;
+                        align-items: center;
+
+                        img { margin-right: 1.2rem; }
+
+                        > span {
+                            display: block;
+                            width: auto;
+                            white-space: normal;
+                        }
+
+                        &.active {
+                            background-color: var(--module-container-active-bg-color);
+                            position: relative;
+                            overflow: visible;
+
+                            &::before {
+                                content: "";
+                                display: block;
+                                position: absolute;
+                                width: 0.6rem;
+                                height: calc(100% + 0.2rem);
+                                left: 0;
+                                top: -0.1rem;
+                                background-color: var(--module-container-active-before-color);
+                            }
+                        }
+
+                        &:focus { 
+                            box-shadow: none; 
+                            outline: 1px solid $primary-blue;
+                        }
+                    }
+
+                    .badge {
+                        position: absolute;
+                        right: 2.6rem;
+                        top: 2rem;
+                    }
+                }
+            }
+            
+            &.open {
+                .dropdown-toggle {
+                    background-color: var(--navigation-default-item-dropdown-open-bg);
+                    color: var(--titles-font-color);
+
+                    .caret { 
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.navbar-default,
+.navbar-secondary {
+    &.navbar.is-mobile {
+        .navbar-collapse{
+            .first-level {
+                .menudrop {
+                    &.open {
+                        > .dropdown-menu {
+                            .navbar-brand {
+                                .dropped-apps-toggle {
+                                    display: block;
+                                    color: var(--anchor-color);
+                                    padding-left: 5rem;
+                                    position: relative;
+                                    box-shadow: none;
+
+                                    > .caret {
+                                        background-color: var(--caret-primary-bg);
+                                        left: 2.7rem;
+                                        top: 2.5rem;
+                                        transform: rotate(90deg);
+                                        width: 11px;
+                                        height: 11px;
+                                    }
+                                }
+                                
+                                &.is-open {
+                                    .dropped-apps-toggle {
+                                        padding-left: 3rem;
+
+                                        > .caret {
+                                            transform: rotate(270deg);
+                                            position: relative;
+                                            left: auto;
+                                            top: 0;
+                                            right: -1.5rem;
+                                        }
+                                    }
+                                }
+
+                                .dropdown-menu {
+                                    li.active { display: none; }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+

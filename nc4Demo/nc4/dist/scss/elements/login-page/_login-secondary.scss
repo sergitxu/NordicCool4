@@ -1,0 +1,208 @@
+
+/*
+ * Login page - secondary
+ */
+
+.login-page-secondary {
+    background-color: var(--module-container-bg-color);
+    padding: 3.2rem calc(50% + 3.2rem) 0 3.2rem;
+    position: relative;
+    z-index: 1; 
+
+    @media (max-width: $screen-lg-min) {
+        padding: 2.4rem calc(50% + 2.4rem) 0 2.4rem;
+    }
+
+    @media (max-width: $screen-md-min) {
+        padding: 4.8rem 0 6rem;
+    }
+
+    &:before, 
+    &:after {
+        content:'';
+        width: calc(50% - 3.2rem);
+        height: calc(100% - 6.4rem);
+        display: block;
+        position: absolute;
+        right: 3.2rem;
+        top: 3.2rem;
+        border-radius: $border-radius-20;
+        z-index: -1;
+
+        @media (max-width: $screen-lg-min) {
+            width: calc(50% - 2.4rem);
+            height: calc(100% - 4.8rem);
+            right: 2.4rem;
+            top: 2.4rem;
+        }
+
+        @media (max-width: $screen-md-min) {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            border-radius: 0;
+        }
+    }
+
+    &:before {
+        left: auto;
+        right: 3.2rem;
+
+        background: {
+            repeat: no-repeat;
+            color: transparent;
+            size: auto 120%; 
+        }
+
+        @media (max-width: $screen-md-min) { right: auto; }
+    }
+
+    &.login-page-secondary-bg-1:before {
+        background: {
+            image: url('#{$image-path}/login/login-background-secondary-1.jpg');
+            position: left center;
+        }
+    }
+    &.login-page-secondary-bg-2:before {
+        background: {
+            image: url('#{$image-path}/login/login-background-secondary-2.jpg');
+            position: left center;
+        }
+    }
+    &.login-page-secondary-bg-3:before {
+        background: {
+            image: url('#{$image-path}/login/login-background-secondary-3.jpg');
+            position: right center;
+        }
+    }
+    &.login-page-secondary-bg-4:before {
+        background: {
+            image: url('#{$image-path}/login/login-background-secondary-4.jpg');
+            position: left center;
+            size: cover;
+        }
+    }
+    &.login-page-secondary-bg-5:before {
+        background: {
+            image: url('#{$image-path}/login/login-background-secondary-5.jpg');
+            position: right center;
+            size: auto 100%;
+        }
+    }
+      
+    &:after {
+        background: var(--mask-bg);
+        opacity: 0.4;
+    }
+
+    .login-box {
+        @media (max-width: $screen-xl-min) and (min-width: $screen-lg-min) { 
+            padding: 2.5rem 11.2rem 2.5rem;
+        }
+
+        @media (min-width: $screen-md-min) { 
+            background: transparent;
+            box-shadow: none;
+        }
+
+        @media (max-width: $screen-lg-max) and (min-width: $screen-md-min) {
+            width: 100%;
+            padding: 2.5rem 8rem 2.5rem;
+        }
+
+        .login-header {
+            img {
+                @media (max-width: $screen-xl-min) { 
+                    max-width: 7.2rem;
+                }
+
+                @media (max-width: $screen-lg-min) { 
+                    max-width: 6.4rem;
+                    margin-bottom: .5rem;
+                }
+            }
+
+            h1 {
+                @media (max-width: $screen-xl-min) {
+                    font-size: 2.6rem;
+                    margin-bottom: 2.4rem;
+                }
+
+                @media (max-width: $screen-lg-min) {
+                    margin-bottom: 1.6rem;
+                }
+            }
+        }
+    }
+
+    .login-footer {
+        width: 100%;
+        margin-bottom: 3rem;
+        margin-top: 2rem;
+
+        @media (max-width: $screen-xl-min) { 
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: $screen-md-min) {
+            bottom: 7rem;    
+            position: absolute;
+        }
+    }
+
+    .cookies-alert {
+        //max-width: 80%;
+        border-radius: $border-radius-20;
+        margin: 0 auto;
+        padding: 2.5rem 3.2rem 2.5rem 4.8rem;
+        justify-content: space-between;
+
+        @media (min-width: $screen-md-min) {
+            background: var(--cookies-alert-secondary-bg);
+            width: calc(50% - 6.4rem);
+            left: 3.2rem;
+            top: 3.2rem;
+        }
+
+        @media (max-width: $screen-md-min) {
+            padding: 1.5rem 3rem 5.6rem;
+            justify-content: center;
+            border-radius: 0;
+            top: 0;
+            left: 0;
+        }
+
+        p { 
+            padding-right: 8rem; 
+
+            @media (max-width: $screen-xl-min) { padding-right: 1.6rem; }
+            @media (max-width: $screen-md-min) { padding-right: 0; }
+        }
+
+        .vismaicon-info { 
+            margin-right: 2.4rem;
+        }
+
+        a:not(.btn) {
+            padding: 0;
+            display: block;
+        }
+    } 
+
+    .login-footer-alert {
+        justify-content: center;
+
+        @media (min-width: $screen-md-min) {
+            background: transparent;
+        }
+
+        @media (max-width: $screen-md-min) {
+            bottom: -6rem;    
+        }
+
+        > ul > li .dropdown-menu {
+            bottom: calc(100% - -2rem);
+        }
+    }
+}

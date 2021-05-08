@@ -1,0 +1,216 @@
+
+//# Custom checkbox
+
+// Customize the label / the container
+.checkbox, .radio {
+    display: inline-block;
+    content: "";
+    cursor: default;
+    position: relative;
+    min-height: 20px;
+    margin: 4px 6px 4px 0;
+    padding: 2px 0 2px 19px;
+
+    color: var(--radio-checkbox-text-color);
+    font: $font-sm;
+    line-height: 1.8rem;
+    text-indent: 6px;
+
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    // Create a custom checkbox/radio button
+    input {
+        &[type="checkbox"],
+        &[type="radio"] {
+            &, &.form-control {
+                position: absolute;
+                opacity: 0;
+                cursor: default;
+                width: 0;
+                height: 0;
+            }
+
+            + .checkmark,
+            + label {
+                padding: 0;
+                position: initial;
+
+                &::after,
+                &::before {
+                    display: block;
+                    position: absolute;
+                    content: '';
+                    cursor: pointer;
+                }
+
+                &::before {
+                    width: 16px;
+                    height: 16px;
+                    top: 3px;
+                    left: 1px;
+                }
+        
+                &::before {
+                    background-color: var(--radio-checkbox-bg);
+                    box-shadow: 0 0 0 1px var(--radio-checkbox-border-color);
+                    border-radius: $border-radius;
+                }
+
+                &::after {
+                    display: none;
+                }
+            }
+
+            &:checked {
+                // When the checkbox is checked, add a blue background
+                + .checkmark,
+                + label {
+                    &:before {
+                        background-color: var(--radio-checkbox-checked-border-color);
+                        box-shadow: 0 0 0 1px var(--radio-checkbox-checked-bg);
+                    }
+
+                    // Show the checkmark/indicator (dot/circle) when checked
+                    &::after { display: block; }
+                }
+            }
+        }
+
+        &[type="radio"] {
+            + .checkmark,
+            + label {
+                &:before { border-radius: $border-radius-20; }
+            }
+        }
+     
+    }
+
+    // On focus
+    &:focus-within, &.focus {
+        outline: 1px solid var(--radio-checkbox-focus-border-color);
+        outline-offset: 3px;
+    }
+
+    // On error
+    .has-error &, &.has-error {
+        outline: 1px solid var(--radio-checkbox-error-focus-border-color);
+        outline-offset: 3px;
+
+        // On Error and focused
+        &:focus-within, &.focus {
+            outline: 2px solid var(--radio-checkbox-error-focus-border-color);
+            outline-offset: 2px;
+        }
+    }
+
+    // Disabled state
+    .disabled &, :disabled &,
+    &.disabled, &:disabled {
+        color: var(--radio-checkbox-disabled-text-color);
+    }
+
+    .disabled &, :disabled &,
+    &.disaled, &:disabled,
+    input.disabled, input:disabled {
+        &[type="checkbox"],
+        &[type="radio"] {
+            + .checkmark, 
+            + label {
+                &:before {
+                    cursor: default;
+                    background-color: var(--radio-checkbox-disabled-bg);
+                    box-shadow: 0 0 0 1px var(--radio-checkbox-disabled-border-color);
+                }
+
+                &::after {
+                    cursor: default;
+                }
+            }
+        }
+
+        // checked state for input type checkbox
+        &[type="checkbox"] {
+            &:checked {
+                + .checkmark,
+                + label {
+                    &:before {
+                        background-color: var(--radio-checkbox-checked-disabled-bg);
+                        box-shadow: 0 0 0 1px var(--radio-checkbox-checked-disabled-border-color);
+                    }
+
+                    &::after {
+                        border-color: var(--radio-checkbox-checked-disabled-checkmark-bg);
+                    }
+                }
+            }
+        }
+
+        // checked state for input type radio
+        &[type="radio"] {
+            &:checked {
+                + .checkmark, 
+                + label {
+                    &:before { background-color: var(--radio-checkbox-checked-disabled-radio-bg); }
+
+                    &::after {
+                        background-color: var(--radio-checkbox-checked-disabled-dot-bg);
+                    }
+                }
+            }
+        }
+    }
+
+    &.radio-inline,
+    &.checkbox-inline {
+        display: inline;
+        padding-left: 25px;
+    }
+}
+
+.checkbox label,
+.radio label { text-indent: 0px; }
+
+//  Style the checkmark/indicator
+.checkbox {
+    label, 
+    .checkmark {
+        border-radius: 3px;
+
+        &::after {
+            width: 5px;
+            height: 10px;
+            top: 5px;
+            left: 7px;
+
+            border: solid var(--radio-checkbox-dot-bg);
+            border-width: 0 2px 2px 0;
+
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+}
+
+// Style the indicator (dot/circle)
+.radio {
+    label,
+    .checkmark {
+        border-radius: 50%;
+
+        &::after {
+            width: 6px;
+            height: 6px;
+            top: 8px;
+            left: 6px;
+
+            border-radius: 50%;
+            background-color: var(--radio-checkbox-dot-bg);
+        }
+    }
+}
+

@@ -1,0 +1,86 @@
+/*
+// Nordic Cool 4
+//
+// Light Mode
+*/
+
+//# image path overwite;
+$prefix-path: 'http://127.0.0.1:8080/nc4/dist' !default;
+
+
+// Core variables and mixins
+//# Default Variables
+@import 'settings/config'; 
+
+//# Project/Your Settings, overwrite the default css variables
+@import 'settings/custom-settings';
+
+//# custom properties
+@import 'settings/custom-properties/core-css-variables';
+@import 'settings/custom-properties/variables-light-mode';
+
+
+//=== Aditional SCSS Variables
+@import 'settings/variables';
+//== Your custom scss overwrite variables
+@import 'settings/custom-variables';
+
+
+// Reset and dependencies
+//=== Resets
+@import 'base/reboot/reboot';
+
+
+// Core/Base Style
+@import 'base/fonts/fonts';
+@import 'base/typography/typography';
+@import 'base/grid';
+
+
+// Elements/Simple Components
+//=== Generic elements/components
+@import 'elements/buttons/buttons';
+@import 'elements/forms/forms';
+@import 'elements/images/images';
+// @import 'elements/table/table';
+
+//=== Basic elements/components
+@import 'elements/badges/badges';
+@import 'elements/icons/icons';
+
+
+// Components
+//=== Containers
+@import 'components/boxes/boxes';
+@import 'components/list-groups/list-groups';
+@import 'components/tabs/tabs';
+
+//=== Menu-based components
+// @import 'components/breadcrumbs/breadcrumbs';
+@import 'components/navigation/navigation';
+// @import 'components/wizard/wizard';
+// @import 'components/vertical-nav/vertical-nav';
+
+//=== Other Components
+// @import 'components/pagination/pagination';
+// @import 'components/alerts/alerts';
+// @import 'components/tooltips/tooltips';
+// @import 'components/progress-indicators/progress-indicators';
+// @import 'components/stepper/stepper';
+// @import 'components/charts/charts';
+
+
+// Modules
+//=== Login Page
+// @import 'elements/login-page';
+
+//=== Error pages
+@import 'elements/error-pages/error-pages';
+
+// Utility/Helper Classes
+@import 'base/helper-classes/helper-classes';
+
+
+// Others
+//=== Print Reset
+// @import 'base/print/print';

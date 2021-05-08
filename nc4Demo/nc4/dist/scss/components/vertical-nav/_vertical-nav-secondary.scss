@@ -1,0 +1,63 @@
+//=== Secondary style (blue navigation)
+
+.vertical-nav {
+    &.vertical-nav-blue,
+    &.vertical-nav-primary,
+    &.vertical-nav-secondary { 
+        background-color: var(--vertical-nav-secondary-bg);
+        box-shadow: var(--vertical-nav-secondary-shadow);
+ 
+        ul li {
+            a { 
+                color: var(--vertical-nav-secondary-item-text); 
+
+                &:hover { background-color: var(--vertical-nav-secondary-item-hover-bg); } 
+
+                &:focus { outline: 1px solid $white; }
+
+                &:after { background-color: var(--vertical-nav-secondary-item-text); }
+            }
+
+            &.active {
+                > a:only-child { background-color: var(--vertical-nav-secondary-item-active-bg); }
+            }
+
+            &.active,
+            &.active.active-child {
+                > a { 
+                    background-color: var(--vertical-nav-secondary-collapse-bg); 
+
+                    //&:hover { background-color: #24618a; }
+                }
+            }
+
+            &.disabled {
+                > a { color: var(--vertical-nav-secondary-item-disabled); }
+            }
+            
+            &.show-nav {
+                > a {
+                    background-color: var(--vertical-nav-secondary-collapse-btn-bg);
+
+                    &:after { 
+                        background-color: var(--vertical-nav-secondary-collapse-arrow);
+                    }
+                }
+
+                &.show-nav-primary {
+                    > a {
+                        background-color: var(--vertical-nav-secondary-collapse-btn-bg);
+                        box-shadow: var(--vertical-nav-secondary-collapse-btn-shadow);
+                    }
+                }
+            }
+        }
+     
+        > ul {
+            > li {
+                > ul { background: var(--vertical-nav-secondary-collapse-bg); }
+            }
+        }
+      
+    }
+}

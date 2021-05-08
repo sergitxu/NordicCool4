@@ -1,0 +1,41 @@
+// Datepicker inline
+
+.datepicker {
+    .is-inline {
+        .dropdown-menu {
+            width: 426px;
+            padding: 30px 40px 25px 45px;
+            position: static;
+            display: inline-block;  
+            background: var(--datepicker-inline-bg);
+            box-shadow: var(--datepicker-inline-shadow);  
+
+            @media(max-width: $screen-xs-min) {
+                width: 366px;
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+        }
+
+        .datepicker-body > .datepicker-row {
+            .datepicker-cell { 
+                margin-bottom: 17px; 
+
+                &.is-week-number { 
+                    padding-bottom: 17px; 
+                    margin: 0;
+                }
+            }
+
+            &:last-child {
+                .datepicker-cell { 
+                    margin-bottom: 0px; 
+    
+                    &.is-week-number { padding-bottom: 0px; }
+                }
+            }
+        }
+    } 
+
+    
+}

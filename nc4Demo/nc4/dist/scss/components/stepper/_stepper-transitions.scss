@@ -1,0 +1,45 @@
+
+
+// Stepper transitions
+.stepper {
+    &.transition {
+        ul {
+            li.active {
+                @media (min-width: $screen-md-min) {
+                    > * {
+                        animation: active-font 0.1s linear;
+                        -webkit-animation: active-font 0.1s linear;
+
+                        &::after {
+                            animation: progress-bar 0.75s linear;
+                            -webkit-animation: progress-bar 0.75s linear;
+                        }
+
+                        &::before {
+                            animation: bullet 0.1s linear;
+                            -webkit-animation: bullet 0.1s linear;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+} 
+
+
+// Transitions
+@keyframes progress-bar {
+    0% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+@keyframes bullet {
+    0% { border-width: 0; }
+    100% { border-width: 15px; }
+}
+
+@keyframes active-font {
+    0% { font-weight: $normal; }
+    100% { font-weight: $bold; }
+}

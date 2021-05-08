@@ -1,0 +1,102 @@
+/**** Informative icons ****/
+.vismaicon {
+    &.vismaicon-filled {
+        &:before { 
+            mask: url('#{$icons-path}/informative-filled-icons/24_informative_icons.svg'); 
+            -webkit-mask: url('#{$icons-path}/informative-filled-icons/24_informative_icons.svg'); 
+        }
+
+        &.vismaicon-sm:before { 
+            mask: url('#{$icons-path}/informative-filled-icons/16_informative_icons.svg'); 
+            -webkit-mask: url('#{$icons-path}/informative-filled-icons/16_informative_icons.svg'); 
+        }
+
+        &.vismaicon-lg:before {
+            width: 50px;
+            height: 50px;
+            mask: url('#{$icons-path}/informative-filled-icons/50_informative_icons.svg');
+            -webkit-mask: url('#{$icons-path}/informative-filled-icons/50_informative_icons.svg');
+        }
+    }
+}
+
+.vismaicon-error.vismaicon-filled {
+    &:before { 
+        mask-position: -29px 0px;  
+        -webkit-mask-position: -29px 0px;  
+        background-color: var(--icon-informative-error-bg);
+    }
+
+    &.vismaicon-lg:before { 
+        mask-position: -55px 0px; 
+        -webkit-mask-position: -55px 0px; 
+    }
+    &.vismaicon-sm:before { 
+        mask-position: -21px 0px; 
+        -webkit-mask-position: -21px 0px; 
+    }
+}
+
+.vismaicon-warning.vismaicon-filled {
+    &:before { 
+        mask-position: -58px 0px; 
+        -webkit-mask-position: -58px 0px; 
+        background-color: var(--icon-informative-warning-bg);
+    }
+    &.vismaicon-lg:before { 
+        mask-position: -110px 0px; 
+        -webkit-mask-position: -110px 0px; 
+    }
+    &.vismaicon-sm:before { 
+        mask-position: -42px 0px; 
+        -webkit-mask-position: -42px 0px; 
+    }
+}
+
+.vismaicon-info.vismaicon-filled:not(.vismaicon-menu) {
+    &:before { 
+        mask-position: -87px 0px; 
+        -webkit-mask-position: -87px 0px; 
+        background-color: var(--icon-informative-info-bg);
+    }
+    &.vismaicon-lg:before { 
+        mask-position: -165px 0px; 
+        -webkit-mask-position: -165px 0px; 
+    }
+    &.vismaicon-sm:before { 
+        mask-position: -63px 0px; 
+        -webkit-mask-position: -63px 0px; 
+    }
+}
+
+.vismaicon-success.vismaicon-filled {
+    &:before { 
+        mask-position: 0px 0px;
+        -webkit-mask-position: 0px 0px;
+        background-color: var(--icon-informative-success-bg);
+    }
+    &.vismaicon-lg:before { 
+        mask-position: 0px 0px; 
+        -webkit-mask-position: 0px 0px; 
+    }
+    &.vismaicon-sm:before { 
+        mask-position: 0px 0px; 
+        -webkit-mask-position: 0px 0px; 
+    }
+}
+
+.vismaicon-help.vismaicon-filled {
+    &:before { 
+        mask-position: -116px 0px; 
+        -webkit-mask-position: -116px 0px; 
+        background-color: var(--icon-informative-help-bg);
+    }
+    &.vismaicon-lg:before { 
+        mask-position: -220px 0px; 
+        -webkit-mask-position: -220px 0px; 
+    }
+    &.vismaicon-sm:before { 
+        mask-position: -84px 0px; 
+        -webkit-mask-position: -84px 0px; 
+    }
+}

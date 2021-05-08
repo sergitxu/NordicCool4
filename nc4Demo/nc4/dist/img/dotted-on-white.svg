@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="6" height="1" viewBox="0 0 6 1">
+  <defs>
+    <clipPath id="clip-Artboard_1">
+      <rect width="6" height="1"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_1" data-name="Artboard – 1" clip-path="url(#clip-Artboard_1)">
+    <rect width="6" height="1" fill="transparent"/>
+    <g id="Divider_-_Dotted_-_On_White_BG" data-name="Divider - Dotted - On White BG" transform="translate(0 0.03)" clip-path="url(#clip-path)">
+      <g transform="translate(-1058 -5521)">
+        <rect id="Dot" width="1" height="1" transform="translate(1058 5521)" fill="#959799"/>
+      </g>
+    </g>
+  </g>
+</svg>

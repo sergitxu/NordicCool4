@@ -1,0 +1,155 @@
+
+// Top navigation - default styles - BLUE VERSION
+
+.navbar {
+    &.navbar-default {
+        background: var(--navigation-default-bg);
+        box-shadow: var(--navigation-default-shadow);
+
+        .dropdown {
+            > .dropdown-toggle {
+                .caret { 
+                    background-color: var(--caret-navigation-bg);
+                }
+            }
+
+            &.open {
+                > .dropdown-toggle {
+                    .caret { 
+                        background-color: var(--caret-open-navigation-bg);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Product dropdown area */ 
+.navbar-default {
+    .navbar-header {
+        .navbar-brand {
+            > a,
+            > .dropdown-toggle {
+                border-right: 1px solid var(--navigation-default-divider-bg);
+                color: var(--navigation-default-item-text-color);
+                
+                &:hover { background-color: var(--navigation-default-item-hover-bg); }
+
+                &:focus { outline: 1px solid var(--navigation-default-item-focus-border-color); }
+            }
+        }
+    }
+}
+
+/* navbar */
+.navbar-default {
+    .navbar-collapse {
+        .nav {
+            li {
+                a {
+                    &:hover{
+                        background: var(--navigation-default-item-hover-bg);
+                    }
+                }
+            }
+        }
+
+        .first-level.navbar-right {
+            > .icon { 
+                & > a {
+                    .badge {
+                        background: var(--navigation-default-badge-bg);
+                        color: var(--navigation-default-badge-text-color);
+                    }
+                }
+
+                &.open > a {
+                    .badge {
+                        background: var(--badge-success-bg);
+                        color: $neutral-light-05;
+                    }
+                }
+
+                &.dropdown {
+                    &.open {
+                        > a.dropdown-toggle {
+                            > .vismaicon:before { background-color: var(--navigation-default-dropdown-open-icon-bg); }
+                        }
+                    }
+
+                    &.shopping-cart {
+                        &:not(:last-child) > a.dropdown-toggle {
+                            border-right: 1px solid var(--navigation-default-divider-bg);
+                        }
+                    }
+                }
+            }
+
+            .user-dropdown {
+                > .dropdown-toggle { 
+                    border-left: 1px solid var(--navigation-default-divider-bg);
+
+                    > small { color: var(--navigation-default-item-dropdown-small-text-color); } 
+                }
+
+                &.icon {
+                    &.open {
+                        .dropdown-toggle {
+                            .vismaicon::before { background-color: var(--navigation-default-dropdown-open-icon-bg); }
+                        }
+                    }
+                }
+            }
+        }
+
+        .first-level {
+            > li > a { 
+                color: var(--navigation-default-item-text-color); 
+
+                &:focus { outline: 1px solid var(--navigation-default-item-focus-border-color); }
+            }
+
+            > .active {
+                > a { background-color: var(--navigation-default-item-active-bg); }
+            }
+
+            .menudrop {
+                > .dropdown-toggle {
+                    .icon-align-justify {
+                        background: var(--navigation-default-icon-bg);
+
+                        &::before, &::after { background: var(--navigation-default-icon-bg); }
+                    }
+                }
+
+                // &.open {
+                //     .dropdown-toggle {
+                //     }
+                // }
+            }
+        }
+
+        ul.second-level { 
+            border-top: 1px solid var(--navigation-default-second-level-divider);
+            box-shadow: var(--navigation-default-second-level-shadow);
+        }
+    }
+}
+
+
+/* Mobile */
+.navbar-default {
+    &.navbar.is-mobile {
+        .navbar-collapse{
+            .first-level {
+                .menudrop {
+                    .icon-align-justify {
+                        &,
+                        &::before, 
+                        &::after { background: var(--navigation-default-icon-bg); }
+                    }
+                }
+            }
+        }
+    }
+}

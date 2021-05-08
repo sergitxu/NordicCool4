@@ -1,0 +1,398 @@
+
+$focusWidth: 1px;
+
+// Make terms and descriptions in description block tag line up side-by-side.
+.dl-horizontal {
+    @media (min-width: $screen-sm-min) {
+        dt {
+            overflow: hidden;
+            float: left;
+            clear: left;
+            width: 162px;
+    
+            text-align: right;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        dd {
+            margin-left: 180px;
+        }
+    }
+}
+
+// unstyled list, removing the default list-style and left margin.
+.list-unstyled,
+.list-inline {
+    padding-left: 0;
+
+    list-style: none;
+}
+
+// place all list on a single line / paragraph.
+.list-inline {
+    margin-left: -6px;
+
+    > li {
+        display: inline-block;
+        padding-right: 6px;
+        padding-left: 6px;
+    }
+}
+
+// Basic list group
+.list-group {
+    margin: 0;
+    padding: 0 30px;
+    overflow: hidden;
+
+    color: var(--body-font-color);
+    list-style: none;
+
+    border-radius: 20px;
+    background-color: var(--module-container-bg-color);
+    box-shadow: var(--module-container-shadow);
+
+    // List group components
+    > .list-group-header,
+    > .list-group-item,
+    > .list-group-title,
+    > .list-group-footer {
+        // overflow: hidden;
+        display: block;
+        clear: both;
+        cursor: default;
+        position: relative;
+        margin: 0;
+        padding: 15px 0;
+
+        font: {
+            size: 14px;
+        }
+        line-height: 18px;
+
+        &:not(:first-child) {
+            box-shadow: var(--list-group-divider);
+        }
+
+        .badge {
+            position: relative;
+            float: right;
+            min-width: 30px;
+            height: 20px;
+            top: 0;
+            padding: 1px 6px;
+            margin-right: 1px;
+
+            color: var(--list-group-badge-text);
+            text-align: center;
+            font-size: 14px;
+            //line-height: 18px;
+            font-weight: normal;
+
+            border-radius: 20px;
+            box-shadow: none;
+            background: transparent;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // header block of the list group
+    > .list-group-header {
+        margin-right: -30px;
+        margin-left: -30px;
+        padding: 15px 30px;
+
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        background-color: var(--list-group-header-bg);
+
+        &.list-group-title {
+            color: $neutral-05;
+
+            .badge {
+                background-color: $neutral-05;
+                border-color: $white;
+            }
+        }
+    }
+
+    // list item default state
+    > .list-group-item {
+        &:last-child {
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        // active state for a list item
+        &.active {
+            margin-right: -30px;
+            margin-left: -30px;
+            padding: 15px 30px;
+
+            background-color: var(--module-container-active-bg-color);
+
+            &::before {
+                display: block;
+                position: absolute;
+                content: '';
+                width: 5px;
+                height: 100%;
+                top: 0;
+                left: 0;
+
+                background-color: var(--module-container-active-before-color);
+            }
+
+            + .list-group-item { box-shadow: none; }
+        }
+
+        // disabled state for a list item
+        &.disabled {
+            &, &:hover, &:active, &:focus {
+                cursor: default;
+                pointer-events: none;
+                outline: none;
+
+                color: var(--button-disabled-text-color);
+            }
+
+            .badge { color: var(--button-disabled-text-color); }
+        }
+
+        // title element in the list item of the list group
+        .list-group-item-heading,
+        .list-group-item-text {
+            margin-bottom: 12px;
+
+            color: var(--body-font-color);
+            font: {
+                size: 14px;
+                weight: $normal;
+            }
+            line-height: 18px;
+        }
+
+        // 
+        .list-group-item-text.mutted { color: var(--neutral-80); }
+    }
+
+    // define default state for a clickable list item
+    > a.list-group-item {
+        cursor: pointer;
+
+        color: var(--body-font-color);
+        text-decoration: none;
+
+        border: 0;
+        background-color: transparent;
+
+        // full width of list item for active focus and hover state
+        &:not(.disabled):hover,
+        &:not(.disabled):focus,
+        &.active {
+            margin-right: -30px;
+            margin-left: -30px;
+            padding: 15px 30px;
+        }
+
+        // hover state for list item
+        &:not(.disabled):not(.active):hover {
+            background-color: var(--module-container-hover-bg-color);
+            box-shadow: none;
+
+            + .list-group-item { box-shadow: none; }
+        }
+
+        // focus state for list item
+        &:not(.disabled):focus {
+            outline: 0;
+
+            &, &:hover {
+                //box-shadow: inset 0 0 0 $focusWidth $primary-blue;
+                box-shadow: inset 0 0 0 $focusWidth var(--anchor-focus-outline);
+            }
+        }
+
+        // active state for list item
+        &.active {
+            &:focus::before {
+                box-shadow: inset $focusWidth $focusWidth 0 0 var(--anchor-focus-outline), inset 0 -1px 0 0 var(--anchor-focus-outline);
+            }
+        }
+    }
+
+    // title element group
+    > .list-group-title {
+        & {
+            color: var(--titles-font-color);
+
+            font: {
+                size: 16px;
+                weight: $bold;
+            }
+            
+            line-height: 24px;
+        }
+
+        .badge {
+            top: 4px;
+            height: 20px;
+            min-width: 30px;
+            padding-top: 2px;
+
+            color: var(--primary-neutral);
+            font-size: 12px;
+            line-height: 14px;
+            font-weight: bold;
+
+            box-shadow: none;
+            border: 1px solid var(--list-group-badge-border); 
+            background-color: var(--list-group-badge-bg);
+        }
+    }
+
+    // alternative style for the list group
+    &.list-group-primary {
+        background-color: var(--list-group-primary-bg);
+
+        // default state for list items in the alternative list group
+        > .list-group-item,
+        > .list-group-title {
+            &:not(:first-child):not(.list-group-footer):not(.active) {
+                box-shadow: var(--list-group-primary-divider);
+            }
+
+            .badge {
+                color: $neutral-05;
+                font-size: 12px;
+                font-weight: bold;
+
+                border: 1px solid $blue-30;
+                box-shadow: none;
+            }
+        }
+
+        > .list-group-title.list-group-item { color: $neutral-05; }
+
+        > .list-group-item {
+            color: var(--list-group-primary-text-color);
+
+            // active state for the alternative list item
+            &.active {
+                background-color: var(--list-group-primary-active-bg);
+                box-shadow: none;
+
+                &::before { display: none; }
+
+                + .list-group-item:not(:first-child):not(.list-group-footer):not(.active) { box-shadow: none; }
+            }
+
+            // disabled state for the alternative list item
+            &.disabled {
+                &, .badge {
+                    color: $blue-30;
+                }
+            }
+
+            // badge element for the alternative list group
+            .badge {
+                &.badge-nopill {
+                    padding: 0;
+
+                    font-size: 14px;
+                    font-weight: normal;
+                    text-align: right;
+
+                    box-shadow: none;
+                    border: 0;
+
+                    b, strong { font-weight: bold; }
+                }
+            }
+
+            // title element in the list item of the list group
+            .list-group-item-heading,
+            .list-group-item-text {
+                color: $neutral-05;
+            }
+        }
+
+        // clickable list item for alternative list group
+        > a.list-group-item {
+            // hoverble state
+            &:not(.disabled):not(.active):hover {
+                background-color: var(--list-group-primary-hover-bg);
+                box-shadow: none;
+            }
+
+            // focus state 
+            &:not(.disabled):not(:first-child):not(.list-group-footer):not(.active):focus {
+                &, &:hover {
+                    box-shadow: inset 0 0 0 $focusWidth $neutral-05;
+                }
+            }
+
+            // active state
+            // &.active {
+            //     &:focus {
+            //         box-shadow: shadow(10) rgba($blue-90, 0.1), inset 0 0 0 $focusWidth $neutral-05;
+            //     }
+            // }
+        }
+
+        > .list-group-title {
+            .badge {
+                color: var(--badge-text-color);
+
+                background-color: var(--badge-bg);
+                box-shadow: var(--badge-shadow);
+                border: 1px solid var(--badge-bg);
+            }
+        }
+
+        // footer block of the alternative list group
+        > .list-group-footer,
+        > a.list-group-footer {
+            cursor: default;
+
+            &, &:not(.disabled):hover,
+            &:not(.disabled):focus,
+            &:active, &.active,
+            &.disabled {
+                //margin-right: -30px;
+                //margin-left: -30px;
+                padding: 24px 0px;
+
+                line-height: 30px;
+
+                border-radius: 0 0 20px 20px;
+                //background-color: var(--list-group-primary-active-bg);
+                box-shadow: var(--list-group-primary-divider);
+            }
+
+            // default badge block in the footer block
+            .badge {
+                padding: 0;
+
+                font-size: 14px;
+                line-height: 30px;
+                text-align: right;
+                vertical-align: baseline;
+
+                box-shadow: none;
+                border: 0;
+                height: auto;
+
+                b, strong {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+
+

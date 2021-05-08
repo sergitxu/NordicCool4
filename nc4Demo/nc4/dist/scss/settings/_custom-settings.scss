@@ -1,0 +1,495 @@
+
+:root {
+    // --custom-root-background-color: #b35300;
+    // --custom-root-dark-background-color: #a6000e;
+
+
+    // // body properties
+    // --custom-body-font-color: #252626;
+    // --custom-dark-body-font-color: #d8e6f0;
+
+
+    // // anchor properties
+    // --custom-anchor-color: #0071bd;
+    // --custom-dark-anchor-color: #5bb4f0;
+
+    // --custom-anchor-hover-color: #0071bd;
+    // --custom-dark-anchor-hover-color: #5bb4f0;
+
+    // --custom-anchor-focus-color: #007aca;
+    // --custom-dark-anchor-focus-color: #5bb4f0;
+
+    // --custom-anchor-disabled-color: '';
+    // --custom-dark-anchor-disabled-color: '';
+
+    // // anchor - active/selected state
+    // --custom-anchor-active-color: '';
+    // --custom-dark-anchor-active-color: '';
+
+    // 'mark' tag/element (highlighted text)
+    // --custom-highlighted-text-bg-color: #ffeacc;
+    // --custom-dark-highlighted-text-bg-color: #ffeacc;
+
+
+    // // base button
+    // --custom-button-text-color: #252626;
+    // --custom-dark-button-text-color: #f0f2f5;
+
+    // --custom-button-border-color:  #c1c3c5;
+    // --custom-dark-button-border-color: #507085;
+
+    // --custom-button-bg: #ffffff;
+    // --custom-dark-button-bg: #273b47;
+
+    // --custom-button-shadow-color: '';
+    // --custom-dark-button-shadow-color: '';
+
+
+
+    // // default button
+    // --custom-button-inner-border-color: '';
+    // --custom-dark-button-inner-border-color: '';
+
+    // // default button - hover state
+    // // --custom-button-hover-text-color: '';
+    // // --custom-dark-button-hover-text-color: '';
+
+    // --custom-button-hover-border-color: '';
+    // --custom-dark-button-hover-border-color: '';
+
+    // --custom-button-hover-bg: '';
+    // --custom-dark-button-hover-bg: '';
+
+    // --custom-button-hover-shadow-color: '';
+    // --custom-dark-button-hover-shadow-color: '';
+
+
+    // // default button - focus state
+    // --custom-button-focus-border-color: '';
+    // --custom-dark-button-focus-border-color: '';
+    
+    // --custom-button-focus-shadow-color: '';
+    // --custom-dark-button-focus-shadow-color: '';
+
+
+    // // default button - active/pressed state
+    // --custom-button-active-border-color: '';
+    // --custom-dark-button-active-border-color: '';
+
+    // --custom-button-active-bg: '';
+    // --custom-dark-button-active-bg: '';
+
+
+    // // default button - active/selected state
+    // --custom-button-selected-bg: '';
+    // --custom-dark-button-selected-bg: '';
+
+
+    // // default button - disabled state
+    // --custom-button-disabled-text-color: '';
+    // --custom-dark-button-disabled-text-color: '';
+
+    // --custom-button-disabled-border-color: '';
+    // --custom-dark-button-disabled-border-color: '';
+
+    // --custom-button-disabled-inner-border-color: '';
+    // --custom-dark-button-disabled-inner-border-color: '';
+
+    // --custom-button-disabled-bg: '';
+    // --custom-dark-button-disabled-bg: '';
+
+
+    // // primary button
+    // --custom-button-primary-text-color: '';
+    // --custom-dark-button-primary-text-color: '';
+
+    // --custom-button-primary-border-color: '';
+    // --custom-dark-button-primary-border-color: '';
+
+    // --custom-button-primary-inner-border-color: '';
+    // --custom-dark-button-primary-inner-border-color: '';
+
+    // --custom-button-primary-bg: '';
+    // --custom-dark-button-primary-bg: '';
+
+    // --custom-button-primary-shadow-color: '';
+    // --custom-dark-button-primary-shadow-color: '';
+
+
+    // // primary button - hover state
+    // --custom-button-primary-hover-border-color: '';
+    // --custom-dark-button-primary-hover-border-color: '';
+
+    // --custom-button-primary-hover-bg: '';
+    // --custom-dark-button-primary-hover-bg: '';
+
+
+    // // primary button - focus state
+    // --custom-button-primary-focus-border-color: '';
+    // --custom-dark-button-primary-focus-border-color: '';
+
+    // --custom-button-primary-focus-inner-shadow-color: '';
+    // --custom-dark-button-primary-focus-inner-shadow-color: '';
+
+    // --custom-button-primary-focus-shadow-color: '';
+    // --custom-dark-button-primary-focus-shadow-color: '';
+
+
+    // // primary button - active/pressed state
+    // --custom-button-primary-active-border-color: '';
+    // --custom-dark-button-primary-active-border-color: '';
+
+    // --custom-button-primary-active-bg: '';
+    // --custom-dark-button-primary-active-bg: '';
+
+    // --custom-button-primary-active-shadow: '';
+    // --custom-dark-button-primary-active-shadow: '';
+
+
+    // // primary button - active/selected state
+    // --custom-button-primary-selected-bg: '';
+    // --custom-dark-button-primary-selected-bg: '';
+
+
+    // // primary button - disabled state
+    // --custom-button-primary-disabled-text-color: '';
+    // --custom-dark-button-primary-disabled-text-color: '';
+
+    // --custom-button-primary-disabled-border-color: '';
+    // --custom-dark-button-primary-disabled-border-color: '';
+
+    // --custom-button-primary-disabled-inner-border-color: '';
+    // --custom-dark-button-primary-disabled-inner-border-color: '';
+
+    // --custom-button-primary-disabled-bg: '';
+    // --custom-dark-button-primary-disabled-bg: '';
+
+
+    // //# dropdown button
+    // --custom-dropdown-menu-text-color: '';
+    // --custom-dark-dropdown-menu-text-color: '';
+
+    // --custom-dropdown-menu-bg: '';
+    // --custom-dark-dropdown-menu-bg: '';
+
+    // --custom-dropdown-menu-shadow-color: '';
+    // --custom-dark-dropdown-menu-shadow-color: '';
+
+    // // dropdown button - hover state
+    // ---custom-dropdown-menu-hover-bg: '';
+    // ---custom-dark-dropdown-menu-hover-bg: '';
+
+    // // dropdown button - active/selected state
+    // --custom-dropdown-menu-selected-text-color: '';
+    // --custom-dark-dropdown-menu-selected-text-color: '';
+
+
+    // // dropdown arrow
+    // --custom-dropdown-arrow-bg: '';
+    // --custom-dark-dropdown-arrow-bg: '';
+
+    // --custom-dropdown-arrow-disabled-bg: '';
+    // --custom-dark-dropdown-arrow-disabled-bg: '';
+
+    // --custom-dropdown-primary-arrow-bg: '';
+    // --custom-dark-dropdown-primary-arrow-bg: '';
+
+
+
+    // // wizard selected
+    // --custom-wizard-selected-border-color: '';
+    // --custom-dark-wizard-selected-border-color: '';
+
+
+    // //=== 6. Forms
+    // // inputs
+    // --custom-input-text-color: '';
+    // --custom-dark-input-text-color: '';
+
+    // --custom-input-placeholder-color: '';
+    // --custom-dark-input-placeholder-color: '';
+
+    // --custom-input-border-color: '';
+    // --custom-dark-input-border-color: '';
+
+    // --custom-input-bg: '';
+    // --custom-dark-input-bg: '';
+
+    // --custom-input-shadow-color: '';
+    // --custom-dark-input-shadow-color: '';
+
+
+    // // inputs - hover state
+    // --custom-input-hover-border-color: '';
+    // --custom-dark-input-hover-border-color: '';
+
+    // --custom-input-hover-bg: '';
+    // --custom-dark-input-hover-bg: '';
+
+    // --custom-input-hover-shadow-color: '';
+    // --custom-dark-input-hover-shadow-color: '';
+
+
+    // // inputs - focus state
+    // --custom-input-focus-border-color: '';
+    // --custom-dark-input-focus-border-color: '';
+
+    // --custom-input-focus-shadow-color: '';
+    // --custom-dark-input-focus-shadow-color: '';
+
+
+    // // inputs - disabled state
+    // --custom-input-disabled-text-color: '';
+    // --custom-dark-input-disabled-text-color: '';
+
+    // --custom-input-disabled-border-color: '';
+    // --custom-dark-input-disabled-border-color: '';
+
+    // // inputs - primary
+    // --custom-input-primary-border-color: '';
+    // --custom-dark-input-primary-border-color: '';
+
+    // --custom-input-primary-shadow-color: '';
+    // --custom-dark-input-primary-shadow-color: '';
+
+    // // inputs - primary - hover
+    // --custom-input-primary-hover-border-color: '';
+    // --custom-dark-input-primary-hover-border-color: '';
+
+    // // inputs - primary - disabled
+    // --custom-search-field-primary-disabled-button: '';
+    // --custom-dark-search-field-primary-disabled-button: '';
+
+    // --custom-search-field-primary-disabled-button-border: '';
+    // --custom-dark-search-field-primary-disabled-button-border: '';
+
+
+    // // error inputs
+    // --custom-input-error-text-color: '';
+    // --custom-dark-input-error-text-color: '';
+
+    // --custom-input-error-border-color: '';
+    // --custom-dark-input-error-border-color: '';
+
+
+    // // labels for inputs
+    // --custom-input-label-text-color: '';
+    // --custom-dark-input-label-text-color: '';
+
+    // --custom-input-disabled-label-text-color: '';
+    // --custom-dark-input-disabled-label-text-color: '';
+
+
+    // // switches
+    // --custom-switches-text-color:  '';
+    // --custom-dark-switches-text-color:  '';
+
+    // --custom-switches-border-color: '';
+    // --custom-dark-switches-border-color: '';
+
+    // --custom-switches-bg: '';
+    // --custom-dark-switches-bg: '';
+
+    // --custom-switches-togglemark-bg: '';
+    // --custom-dark-switches-togglemark-bg: '';
+
+    // --custom-switches-togglemark-shadow-color: '';
+    // --custom-dark-switches-togglemark-shadow-color: '';
+
+
+    // // switches - hover
+    // --custom-switches-hover-bg: '';
+    // --custom-dark-switches-hover-bg: '';
+
+
+    // // switches - focus
+    // --custom-switches-focus-border-color: '';
+    // --custom-dark-switches-focus-border-color: '';
+
+    // --custom-switches-focus-inner-border-color: '';
+    // --custom-dark-switches-focus-inner-border-color: '';
+
+
+    // // switches - disabled
+    // --custom-switches-disabled-text-color: '';
+    // --custom-dark-switches-disabled-text-color: '';
+
+    // --custom-switches-disabled-bg: '';
+    // --custom-dark-switches-disabled-bg: '';
+
+    // --custom-switches-disabled-togglemark-bg: '';
+    // --custom-dark-switches-disabled-togglemark-bg: '';
+
+
+    // // switches - checked
+    // --custom-switches-checked-text-color: '';
+    // --custom-dark-switches-checked-text-color: '';
+
+    // --custom-switches-checked-bg: '';
+    // --custom-dark-switches-checked-bg: '';
+
+
+    // // switches - hover - checked
+    // --custom-switches-checked-hover-bg: '';
+    // --custom-dark-switches-checked-hover-bg: '';
+
+
+    // // switches - disabled - checked
+    // --custom-switches-checked-disabled-text-color: '';
+    // --custom-dark-switches-checked-disabled-text-color: '';
+
+    // --custom-switches-checked-disabled-bg: '';
+    // --custom-dark-switches-checked-disabled-bg: '';
+
+    // --custom-switches-checked-disabled-togglemark-bg: '';
+    // --custom-dark-switches-checked-disabled-togglemark-bg: '';
+
+
+    // // radio-checkbox
+    // --custom-radio-checkbox-text-color: '';
+    // --custom-dark-radio-checkbox-text-color: '';
+
+    // --custom-radio-checkbox-border-color: '';
+    // --custom-dark-radio-checkbox-border-color: '';
+
+    // --custom-radio-checkbox-bg: '';
+    // --custom-dark-radio-checkbox-bg: '';
+
+    // --custom-radio-checkmark-bg: '';
+    // --custom-dark-radio-checkmark-bg: '';
+
+    // --custom-radio-checkbox-dot-bg: '';
+    // --custom-dark-radio-checkbox-dot-bg: '';
+
+
+    // // radio-checkbox - focus
+    // --custom-radio-checkbox-focus-border-color: '';
+    // --custom-dark-radio-checkbox-focus-border-color: '';
+
+    // --custom-radio-error-checkbox-border-color: '';
+    // --custom-radio-error-checkbox-border-color: '';
+
+
+    // // radio-checkbox - disabled
+    // --custom-radio-checkbox-disabled-text-color: '';
+    // --custom-dark-radio-checkbox-disabled-text-color: '';
+
+    // --custom-radio-checkbox-disabled-border-color: '';
+    // --custom-dark-radio-checkbox-disabled-border-color: '';
+
+    // --custom-radio-checkbox-disabled-bg: '';
+    // --custom-dark-radio-checkbox-disabled-bg: '';
+
+
+    // // radio-checkbox - checked
+    // --custom-radio-checkbox-checked-border-color: '';
+    // --custom-dark-radio-checkbox-checked-border-color: '';
+
+    // --custom-radio-checkbox-checked-bg: '';
+    // --custom-dark-radio-checkbox-checked-bg: '';
+
+    // --custom-radio-checkbox-checked-disabled-bg: '';
+    // --custom-dark-radio-checkbox-checked-disabled-bg: '';
+
+    // --custom-radio-checkbox-checked-disabled-checkmark-bg: '';
+    // --custom-dark-radio-checkbox-checked-disabled-checkmark-bg: '';
+
+    // --custom-radio-checkbox-checked-disabled-dot-bg: '';
+    // --custom-dark-radio-checkbox-checked-disabled-dot-bg: '';
+
+
+    // //=== 10. Images
+    // --custom-image-no-alt-border-color: '';
+    // --custom-dark-image-no-alt-border-color: '';
+
+    // --custom-thumbnail-border-color: '';
+    // --custom-dark-thumbnail-border-color: '';
+
+
+    // //=== 11. Table
+    // --custom-table-border-color: '';
+    // --custom-dark-table-border-color: '';
+
+    // --custom-table-bg: '';
+    // --custom-dark-table-bg: '';
+
+    // --custom-table-alt-bg: '';
+    // --custom-dark-table-alt-bg: '';
+
+    // --custom-table-shadow-color: '';
+    // --custom-dark-table-shadow-color: '';
+
+
+    // // table - cell hover
+    // --custom-table-hover-border-color: '';
+    // --custom-dark-table-hover-border-color: '';
+
+    // --custom-table-hover-bg: '';
+    // --custom-dark-table-hover-bg: '';
+
+
+    // // table - cell active/pressed state
+    // --custom-table-active-border-color: '';
+    // --custom-dark-table-active-border-color: '';
+
+    // --custom-table-active-bg: '';
+    // --custom-dark-table-active-bg: '';
+
+
+    // // table - cell active/selected state
+    // --custom-table-selected-border-color: '';
+    // --custom-dark-table-selected-border-color: '';
+
+    // --custom-table-selected-bg: '';
+    // --custom-dark-table-selected-bg: '';
+
+
+    // //=== 12. Stepper
+    // --custom-stepper-text-color: '';
+    // --custom-dark-stepper-text-color: '';
+
+    // --custom-stepper-bg: '';
+    // --custom-dark-stepper-bg: '';
+
+    // --custom-stepper-wrapper-text-color: '';
+    // --custom-dark-stepper-wrapper-text-color: '';
+
+    // --custom-stepper-wrapper-bg: '';
+    // --custom-dark-stepper-wrapper-bg: '';
+
+
+    // // stepper - active/selected state
+    // --custom-stepper-active-text-color: '';
+    // --custom-dark-stepper-active-text-color: '';
+
+    // --custom-stepper-active-border-color: '';
+    // --custom-dark-stepper-active-border-color: '';
+
+    // --custom-stepper-active-bg: '';
+    // --custom-dark-stepper-active-bg: '';
+
+    // --custom-stepper-active-shadow-color: '';
+    // --custom-dark-stepper-active-shadow-color: '';
+
+
+    // // stepper - visited state
+    // --custom-stepper-visited-text-color: '';
+    // --custom-dark-stepper-visited-text-color: '';
+
+    // --custom-stepper-visited-bg: '';
+    // --custom-dark-stepper-visited-bg: '';
+
+
+    // //=== o. Progress Bar
+    // --custom-progress-bar-label: '';
+    // --custom-dark-progress-bar-label: '';
+
+    // --custom-progress-bar-wrapper-bg: '';
+    // --custom-dark-progress-bar-wrapper-bg: '';
+
+    // --custom-progress-bar-bg: '';
+    // --custom-dark-progress-bar-bg: '';
+
+    // --custom-progress-bar-shadow-color: '';
+    // --custom-dark-progress-bar-shadow-color: '';
+}
